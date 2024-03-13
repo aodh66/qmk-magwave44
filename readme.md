@@ -7,6 +7,6 @@ https://github.com/GalileoBlues/Recurva?tab=readme-ov-file#variations
 
 ## Layout
 
-![alt text](https://github.com/aodh66/qmk-sweep/blob/main/images/my_keymap.svg?raw=true)
+<!-- ![alt text](https://github.com/aodh66/qmk-sweep/blob/main/images/my_keymap.svg?raw=true) -->
 
 Keymap.c would require compiling with QMK MSYS or another method, and be flashed onto the keyboard microcontroller.
