@@ -179,7 +179,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
             KC_LCTL,  KC_Z,    KC_X,    KC_K,    KC_G,    KC_W,                          KC_J,   KC_L,  KC_SLSH, KC_QUOT, KC_COMM, KC_DEL,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        TO(1), MO(1), LT(3, KC_SPC), KC_LSFT, QK_REP, LCTL(KC_BSPC), MO(2), KC_MUTE
+        TO(1), MO(1), LT(3, KC_SPC), LCTL(KC_BSPC), QK_REP, KC_LSFT, MO(2), KC_MUTE
         //`--------------------------'  `--------------------------'
         ),
 
@@ -190,9 +190,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         LALT(KC_TAB), KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_MEH,                      KC_PGDN, KC_LEFT, KC_DOWN,  KC_UP,  KC_RGHT,  KC_ENT,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-           KC_LCTL, LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_F),        QK_REP,  KC_DEL,  KC_NO,   KC_TAB,  KC_ESC, KC_DEL,
+        LCTL(KC_TAB), LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_F),      QK_REP,  KC_DEL,  KC_NO,   KC_TAB,  KC_ESC, KC_DEL,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        TO(0), KC_TRNS, KC_NO, KC_NO, KC_TRNS, KC_BSPC, MO(4), KC_MUTE
+        TO(0), KC_TRNS, KC_NO, KC_NO, QK_REP, CW_TOGG, MO(4), KC_MUTE
         //`--------------------------'  `--------------------------'
         ),
 
@@ -205,25 +205,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
             KC_LCTL, KC_TILD, KC_GT,  KC_RCBR, KC_RPRN, KC_RBRC,                      KC_SCLN, KC_MINS, KC_EQL, KC_PLUS, KC_BSLS, KC_DEL,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        TO(3), MO(4), KC_ENT, CW_TOGG, KC_NO, KC_NO, KC_TRNS, KC_MUTE
+        TO(3), MO(4), KC_ENT, KC_BSPC, KC_NO, KC_NO, KC_TRNS, KC_MUTE
         //`--------------------------'  `--------------------------'
         ),
 
     // Numpad
     [3] = LAYOUT(
         //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-            KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,  KC_NO,                        KC_MINS,  KC_7,   KC_8,     KC_9,  KC_ASTR, KC_SLSH,
+            KC_ESC,  KC_NO,   KC_NO,   KC_NO,    KC_NO,  KC_NO,                        KC_MINS,  KC_7,   KC_8,     KC_9,  KC_ASTR, KC_SLSH,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_NO,  KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL,  KC_NO,                        KC_DOT,   KC_4,   KC_5,     KC_6,    KC_0,  KC_ENT,
+            KC_TAB, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL,  KC_NO,                        KC_DOT,   KC_4,   KC_5,     KC_6,    KC_0,  KC_ENT,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_NO,   KC_NO,   KC_NO,  KC_BSPC,  KC_DEL,  KC_NO,                        KC_PLUS,  KC_1,   KC_2,     KC_3,  KC_SLSH, KC_BSLS,
+            KC_LCTL, KC_NO,   KC_NO,  KC_BSPC,  KC_DEL,  KC_NO,                        KC_PLUS,  KC_1,   KC_2,     KC_3,  KC_SLSH, KC_BSLS,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        TO(0), KC_NO, KC_TRNS, KC_NO, QK_REP, KC_BSPC, KC_DEL, KC_MUTE
+        TO(0), KC_NO, KC_TRNS, KC_NO, KC_DEL, KC_BSPC, QK_REP, KC_MUTE
         //`--------------------------'  `--------------------------'
         ),
 
     // Function
-        [4] = LAYOUT(
+    [4] = LAYOUT(
         //,-----------------------------------------------------.                    ,-----------------------------------------------------.
             KC_NO,   KC_NO,   KC_NO,  QK_BOOT,  KC_NO,  KC_VOLU,                       KC_NO,    KC_F7,  KC_F8,   KC_F9,   KC_NO,  XXXXXXX,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -272,25 +272,25 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 const uint16_t PROGMEM combo1[] = {SS_QU, KC_U, COMBO_END}; // Q+U -> Q
 const uint16_t PROGMEM combo17[] = {SS_QU, KC_M, COMBO_END}; // Q+M -> Q
 
-const uint16_t PROGMEM combo2[] = {KC_K, KC_G, COMBO_END}; // K+G -> ESC
-const uint16_t PROGMEM combo3[] = {KC_X, KC_K, COMBO_END}; // X+K -> Tab
+// const uint16_t PROGMEM combo2[] = {KC_K, KC_G, COMBO_END}; // K+G -> ESC
+// const uint16_t PROGMEM combo3[] = {KC_X, KC_K, COMBO_END}; // X+K -> Tab
 
-const uint16_t PROGMEM combo4[] = {KC_F, HOME_S, COMBO_END}; // F+S -> Grave `
-const uint16_t PROGMEM combo5[] = {KC_R, HOME_N, COMBO_END}; // R+N -> Less than <
-const uint16_t PROGMEM combo6[] = {KC_D, HOME_T, COMBO_END}; // D+T -> Left Curly Brace {
-const uint16_t PROGMEM combo7[] = {KC_P, HOME_C, COMBO_END}; // P+C -> Left Parenthesis (
-const uint16_t PROGMEM combo8[] = {KC_V, KC_B, COMBO_END};   // V+B -> Left Brace [
+// const uint16_t PROGMEM combo4[] = {KC_F, HOME_S, COMBO_END}; // F+S -> Grave `
+// const uint16_t PROGMEM combo5[] = {KC_R, HOME_N, COMBO_END}; // R+N -> Less than <
+// const uint16_t PROGMEM combo6[] = {KC_D, HOME_T, COMBO_END}; // D+T -> Left Curly Brace {
+// const uint16_t PROGMEM combo7[] = {KC_P, HOME_C, COMBO_END}; // P+C -> Left Parenthesis (
+// const uint16_t PROGMEM combo8[] = {KC_V, KC_B, COMBO_END};   // V+B -> Left Brace [
 
 // Right Hand
-const uint16_t PROGMEM combo9[] = {KC_SLSH, KC_QUOT, COMBO_END}; // /+' -> Enter
+// const uint16_t PROGMEM combo9[] = {KC_SLSH, KC_QUOT, COMBO_END}; // /+' -> Enter
 const uint16_t PROGMEM combo10[] = {KC_B, KC_DOT, COMBO_END};     // B+. -> Caps Word
-const uint16_t PROGMEM combo11[] = {KC_L, KC_SLSH, COMBO_END};    // L+/ -> Delete Bot
+// const uint16_t PROGMEM combo11[] = {KC_L, KC_SLSH, COMBO_END};    // L+/ -> Delete
 
-const uint16_t PROGMEM combo12[] = {SS_QU, KC_DOT, COMBO_END}; // Q+. -> Right Brace ]
-const uint16_t PROGMEM combo13[] = {KC_M, HOME_H, COMBO_END};  // M+H -> Right Parenthesis )
-const uint16_t PROGMEM combo14[] = {KC_U, HOME_E, COMBO_END};  // U+E -> Right Curly Brace }
-const uint16_t PROGMEM combo15[] = {KC_O, HOME_A, COMBO_END};  // O+A -> Greater than >
-const uint16_t PROGMEM combo16[] = {KC_Y, HOME_I, COMBO_END};  // Y+I -> Semicolon ;
+// const uint16_t PROGMEM combo12[] = {SS_QU, KC_DOT, COMBO_END}; // Q+. -> Right Brace ]
+// const uint16_t PROGMEM combo13[] = {KC_M, HOME_H, COMBO_END};  // M+H -> Right Parenthesis )
+// const uint16_t PROGMEM combo14[] = {KC_U, HOME_E, COMBO_END};  // U+E -> Right Curly Brace }
+// const uint16_t PROGMEM combo15[] = {KC_O, HOME_A, COMBO_END};  // O+A -> Greater than >
+// const uint16_t PROGMEM combo16[] = {KC_Y, HOME_I, COMBO_END};  // Y+I -> Semicolon ;
 
 // Outcome Definitions
 combo_t key_combos[COMBO_COUNT] = {
@@ -298,23 +298,23 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo1, KC_Q), // Q+U -> Q
     COMBO(combo17, KC_Q), // Q+M -> Q
 
-    COMBO(combo2, KC_ESC), // K+G -> ESC
-    COMBO(combo3, KC_TAB), // X+K -> Tab
+    // COMBO(combo2, KC_ESC), // K+G -> ESC
+    // COMBO(combo3, KC_TAB), // X+K -> Tab
 
-    COMBO(combo4, KC_GRV),  // F+S -> Grave `
-    COMBO(combo5, KC_LT),   // R+N -> Less than <
-    COMBO(combo6, KC_LCBR), // D+T -> Left Curly Brace {
-    COMBO(combo7, KC_LPRN), // P+C -> Left Parenthesis (
-    COMBO(combo8, KC_LBRC), // V+B -> Left Brace [
+    // COMBO(combo4, KC_GRV),  // F+S -> Grave `
+    // COMBO(combo5, KC_LT),   // R+N -> Less than <
+    // COMBO(combo6, KC_LCBR), // D+T -> Left Curly Brace {
+    // COMBO(combo7, KC_LPRN), // P+C -> Left Parenthesis (
+    // COMBO(combo8, KC_LBRC), // V+B -> Left Brace [
 
     // Right Hand
-    COMBO(combo9, KC_ENT),  // /+' -> Enter
+    // COMBO(combo9, KC_ENT),  // /+' -> Enter
     COMBO(combo10, CW_TOGG), // B+. -> Caps Word
-    COMBO(combo11, KC_DEL),  // L+/ -> Delete Bot
+    // COMBO(combo11, KC_DEL),  // L+/ -> Delete Bot
 
-    COMBO(combo12, KC_RBRC), // Q+. -> Right Brace ]
-    COMBO(combo13, KC_RPRN), // M+H -> Right Parenthesis )
-    COMBO(combo14, KC_RCBR), // U+E -> Right Curly Brace }
-    COMBO(combo15, KC_GT),   // O+A -> Greater than >
-    COMBO(combo16, KC_SCLN), // Y+I -> Semicolon ;
+    // COMBO(combo12, KC_RBRC), // Q+. -> Right Brace ]
+    // COMBO(combo13, KC_RPRN), // M+H -> Right Parenthesis )
+    // COMBO(combo14, KC_RCBR), // U+E -> Right Curly Brace }
+    // COMBO(combo15, KC_GT),   // O+A -> Greater than >
+    // COMBO(combo16, KC_SCLN), // Y+I -> Semicolon ;
 };
