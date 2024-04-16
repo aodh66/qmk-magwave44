@@ -179,7 +179,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
             KC_LCTL,  KC_Z,    KC_X,    KC_K,    KC_G,    KC_W,                          KC_J,   KC_L,  KC_SLSH, KC_QUOT, KC_COMM, KC_DEL,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        KC_MUTE, MO(1), LT(3, KC_SPC), LCTL(KC_BSPC), QK_REP, OSM(MOD_LSFT), MO(2), TO(9) //clean
+        KC_MUTE, MO(1), LT(3, KC_SPC), LCTL(KC_BSPC), QK_REP, OSM(MOD_LSFT), MO(2), TO(5) //clean
         //`--------------------------'  `--------------------------'
         ),
 
@@ -201,9 +201,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //,-----------------------------------------------------.                    ,-----------------------------------------------------.
            KC_ESC, KC_EXLM,  KC_AT,  KC_HASH,  KC_DLR, KC_PERC,                        KC_CIRC, KC_AMPR, KC_ASTR, KC_UNDS, KC_PIPE, KC_BSPC,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_TAB,  KC_GRV,   KC_LT,  KC_LCBR, KC_LPRN, KC_LBRC,                      KC_COLN, KC_RCTL, KC_RSFT, KC_RALT, KC_RGUI, KC_ENT,
+            KC_TAB,  KC_GRV,   KC_LT,  KC_LCBR, KC_LPRN, KC_LBRC,                      KC_EQL, KC_RCTL, KC_RSFT, KC_RALT, KC_RGUI, KC_ENT,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_LCTL, KC_TILD, KC_GT,  KC_RCBR, KC_RPRN, KC_RBRC,                      KC_SCLN, KC_MINS, KC_EQL, KC_PLUS, KC_BSLS, KC_DEL,
+            KC_LCTL, KC_TILD, KC_GT,  KC_RCBR, KC_RPRN, KC_RBRC,                      KC_PLUS, KC_MINS, KC_SCLN, KC_COLN, KC_BSLS, KC_DEL,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
         KC_TRNS, MO(4), KC_ENT, KC_BSPC, KC_NO, KC_NO, KC_TRNS, TO(0)
         //`--------------------------'  `--------------------------'
@@ -218,7 +218,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
             KC_LCTL, KC_NO,   KC_NO,  KC_BSPC,  KC_DEL,  KC_NO,                        KC_PLUS,  KC_1,   KC_2,     KC_3,  KC_SLSH, KC_BSLS,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        KC_TRNS, KC_NO, KC_TRNS, KC_NO, KC_DEL, KC_BSPC, QK_REP, TO(7) //fps
+        KC_TRNS, KC_NO, KC_TRNS, KC_NO, KC_DEL, KC_BSPC, QK_REP, TO(5) //fps
         //`--------------------------'  `--------------------------'
         ),
 
@@ -259,46 +259,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
         KC_MUTE, KC_TRNS, KC_TRNS, KC_TRNS, QK_REP, KC_LSFT, MO(2), TO(0)
         //`--------------------------'  `--------------------------'
-        ),
-
-    // Game (FPS)
-    [7] = LAYOUT(
-        //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-            KC_ESC,   KC_F,    KC_R,    KC_D,    KC_P,   KC_V,                           SS_QU,   KC_M,   KC_U,     KC_O,   KC_Y,   KC_BSPC,
-        //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_TAB,   KC_S,    KC_N,    KC_T,    KC_C,   KC_B,                         KC_DOT, HOME_H,  HOME_E,  HOME_A,  HOME_I,  KC_ENT,
-        //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_LCTL,  KC_Z,    KC_X,    KC_K,    KC_G,   KC_W,                          KC_J,   KC_L,  KC_SLSH, KC_QUOT, KC_COMM, KC_DEL,
-        //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        KC_MUTE, MO(8), KC_SPC, KC_U, QK_REP, KC_LSFT, MO(2), TO(0)
-        //`--------------------------'  `--------------------------'
-        ),
-
-    // Game (FPS) Alt
-    [8] = LAYOUT(
-        //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-            KC_ESC,   KC_1,    KC_2,    KC_3,    KC_4,   KC_5,                           SS_QU,   KC_M,   KC_U,     KC_O,   KC_Y,   KC_BSPC,
-        //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_LSFT,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_H,                         KC_DOT, HOME_H,  HOME_E,  HOME_A,  HOME_I,  KC_ENT,
-        //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_LALT,  KC_E,    KC_A,  KC_TRNS,   KC_J,   KC_L,                          KC_J,   KC_L,  KC_SLSH, KC_QUOT, KC_COMM, KC_DEL,
-        //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        KC_MUTE, KC_TRNS, KC_TRNS, KC_TRNS, QK_REP, KC_LSFT, MO(2), TO(0)
-        //`--------------------------'  `--------------------------'
-        ),
-
-    // Game (CLEAN)
-    [9] = LAYOUT(
-        //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-            KC_ESC,   KC_F,    KC_R,    KC_D,    KC_P,   KC_V,                           SS_QU,   KC_M,   KC_U,     KC_O,   KC_Y,   KC_BSPC,
-        //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_TAB,   KC_S,    KC_N,    KC_T,    KC_C,   KC_B,                         KC_DOT, HOME_H,  HOME_E,  HOME_A,  HOME_I,  KC_ENT,
-        //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_LCTL,  KC_Z,    KC_X,    KC_K,    KC_G,   KC_W,                          KC_J,   KC_L,  KC_SLSH, KC_QUOT, KC_COMM, KC_DEL,
-        //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        KC_MUTE, KC_LALT, KC_SPC, KC_LCTL, QK_REP, KC_LSFT, MO(2), TO(0)
-        //`--------------------------'  `--------------------------'
         )
+// ! add a comma above if you're going to use these
+    // // Game (FPS)
+    // [7] = LAYOUT(
+    //     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+    //         KC_ESC,   KC_F,    KC_R,    KC_D,    KC_P,   KC_V,                           SS_QU,   KC_M,   KC_U,     KC_O,   KC_Y,   KC_BSPC,
+    //     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+    //         KC_TAB,   KC_S,    KC_N,    KC_T,    KC_C,   KC_B,                         KC_DOT, HOME_H,  HOME_E,  HOME_A,  HOME_I,  KC_ENT,
+    //     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+    //         KC_LCTL,  KC_Z,    KC_X,    KC_K,    KC_G,   KC_W,                          KC_J,   KC_L,  KC_SLSH, KC_QUOT, KC_COMM, KC_DEL,
+    //     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+    //     KC_MUTE, MO(8), KC_SPC, KC_U, QK_REP, KC_LSFT, MO(2), TO(0)
+    //     //`--------------------------'  `--------------------------'
+    //     ),
+
+    // // Game (FPS) Alt
+    // [8] = LAYOUT(
+    //     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+    //         KC_ESC,   KC_1,    KC_2,    KC_3,    KC_4,   KC_5,                           SS_QU,   KC_M,   KC_U,     KC_O,   KC_Y,   KC_BSPC,
+    //     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+    //         KC_LSFT,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_H,                         KC_DOT, HOME_H,  HOME_E,  HOME_A,  HOME_I,  KC_ENT,
+    //     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+    //         KC_LALT,  KC_E,    KC_A,  KC_TRNS,   KC_J,   KC_L,                          KC_J,   KC_L,  KC_SLSH, KC_QUOT, KC_COMM, KC_DEL,
+    //     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+    //     KC_MUTE, KC_TRNS, KC_TRNS, KC_TRNS, QK_REP, KC_LSFT, MO(2), TO(0)
+    //     //`--------------------------'  `--------------------------'
+    //     ),
+
+    // // Game (CLEAN)
+    // [9] = LAYOUT(
+    //     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+    //         KC_ESC,   KC_F,    KC_R,    KC_D,    KC_P,   KC_V,                           SS_QU,   KC_M,   KC_U,     KC_O,   KC_Y,   KC_BSPC,
+    //     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+    //         KC_TAB,   KC_S,    KC_N,    KC_T,    KC_C,   KC_B,                         KC_DOT, HOME_H,  HOME_E,  HOME_A,  HOME_I,  KC_ENT,
+    //     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+    //         KC_LCTL,  KC_Z,    KC_X,    KC_K,    KC_G,   KC_W,                          KC_J,   KC_L,  KC_SLSH, KC_QUOT, KC_COMM, KC_DEL,
+    //     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+    //     KC_MUTE, KC_LALT, KC_SPC, KC_LCTL, QK_REP, KC_LSFT, MO(2), TO(0)
+    //     //`--------------------------'  `--------------------------'
+    //     )
 };
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
@@ -344,24 +344,24 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
             //Encoder 2
             ENCODER_CCW_CW(KC_TRNS, KC_TRNS)
             },
-    [7] =   {
-            //Encoder 1
-            ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
-            //Encoder 2
-            ENCODER_CCW_CW(KC_TRNS, KC_TRNS)
-            },
-    [8] =   {
-            //Encoder 1
-            ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
-            //Encoder 2
-            ENCODER_CCW_CW(KC_TRNS, KC_TRNS)
-            },
-    [9] =   {
-            //Encoder 1
-            ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
-            //Encoder 2
-            ENCODER_CCW_CW(KC_TRNS, KC_TRNS)
-            },
+    // [7] =   {
+    //         //Encoder 1
+    //         ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+    //         //Encoder 2
+    //         ENCODER_CCW_CW(KC_TRNS, KC_TRNS)
+    //         },
+    // [8] =   {
+    //         //Encoder 1
+    //         ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+    //         //Encoder 2
+    //         ENCODER_CCW_CW(KC_TRNS, KC_TRNS)
+    //         },
+    // [9] =   {
+    //         //Encoder 1
+    //         ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+    //         //Encoder 2
+    //         ENCODER_CCW_CW(KC_TRNS, KC_TRNS)
+    //         },
 };
 #endif
 
@@ -380,7 +380,7 @@ const uint16_t PROGMEM combo17[] = {SS_QU, KC_M, COMBO_END}; // Q+M -> Q
 // const uint16_t PROGMEM combo8[] = {KC_V, KC_B, COMBO_END};   // V+B -> Left Brace [
 
 // Right Hand
-const uint16_t PROGMEM combo10[] = {KC_B, KC_DOT, COMBO_END};     // B+. -> Caps Word
+const uint16_t PROGMEM combo10[] = {KC_G, KC_L, COMBO_END};     // G+L -> Caps Word
 
 // const uint16_t PROGMEM combo12[] = {SS_QU, KC_DOT, COMBO_END}; // Q+. -> Right Brace ]
 // const uint16_t PROGMEM combo13[] = {KC_M, HOME_H, COMBO_END};  // M+H -> Right Parenthesis )
