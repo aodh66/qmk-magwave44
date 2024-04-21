@@ -28,11 +28,21 @@
 #define HOME_T LSFT_T(KC_T)
 #define HOME_C LCTL_T(KC_C)
 
+#define HOME_Z LGUI_T(KC_Z)
+#define HOME_X LALT_T(KC_X)
+#define HOME_K LSFT_T(KC_K)
+#define HOME_G LCTL_T(KC_G)
+
 // Right-hand
 #define HOME_H RCTL_T(KC_H)
 #define HOME_E RSFT_T(KC_E)
 #define HOME_A LALT_T(KC_A)
 #define HOME_I RGUI_T(KC_I)
+
+#define HOME_L RCTL_T(KC_L)
+#define HOME_SLSH RSFT_T(KC_SLSH)
+#define HOME_QUOT LALT_T(KC_QUOT)
+#define HOME_COMM RGUI_T(KC_COMM)
 
 // * ------------------
 // * -- Tapping Term --
@@ -178,8 +188,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TAB,  HOME_S,  HOME_N,  HOME_T,  HOME_C,   KC_B,                         KC_DOT, HOME_H,  HOME_E,  HOME_A,  HOME_I,  KC_ENT,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
             KC_LCTL,  KC_Z,    KC_X,    KC_K,    KC_G,    KC_W,                          KC_J,   KC_L,  KC_SLSH, KC_QUOT, KC_COMM, KC_DEL,
+        //                 KC_TAB,  KC_S,  KC_N,  KC_T,  KC_C,   KC_B,                         KC_DOT, KC_H,  KC_E,  KC_A,  KC_I,  KC_ENT,
+        // //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+        //     KC_LCTL,  HOME_Z,    HOME_X,    HOME_K,    HOME_G,    KC_W,                          KC_J,   HOME_L,  HOME_SLSH, HOME_QUOT, HOME_COMM, KC_DEL,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        KC_MUTE, MO(1), LT(3, KC_SPC), LCTL(KC_BSPC), QK_REP, OSM(MOD_LSFT), MO(2), TO(5) //clean
+        KC_MUTE, MO(1), LT(3, KC_SPC), LCTL(KC_BSPC), QK_REP, OSM(MOD_LSFT), MO(2), LSG(KC_S) //snipping tool on press
         //`--------------------------'  `--------------------------'
         ),
 
@@ -218,7 +231,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
             KC_LCTL, KC_NO,   KC_NO,  KC_BSPC,  KC_DEL,  KC_NO,                        KC_PLUS,  KC_1,   KC_2,     KC_3,  KC_SLSH, KC_BSLS,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        KC_TRNS, KC_NO, KC_TRNS, KC_NO, KC_DEL, KC_BSPC, QK_REP, TO(5) //fps
+        KC_TRNS, KC_NO, KC_TRNS, KC_NO, KC_DEL, KC_BSPC, QK_REP, TO(0) //fps
         //`--------------------------'  `--------------------------'
         ),
 
@@ -306,13 +319,13 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
             //Encoder 1
             ENCODER_CCW_CW(KC_VOLD, KC_VOLU),
             //Encoder 2
-            ENCODER_CCW_CW(KC_MS_WH_DOWN, KC_MS_WH_UP)
+            ENCODER_CCW_CW(LCTL(KC_TAB), RCS(KC_TAB))
             },
     [1] =   {
             //Encoder 1
             ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
             //Encoder 2
-            ENCODER_CCW_CW(KC_TRNS, KC_TRNS)
+            ENCODER_CCW_CW(LALT(KC_TAB), LSA(KC_TAB))
             },
     [2] =   {
             //Encoder 1
@@ -324,7 +337,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
             //Encoder 1
             ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
             //Encoder 2
-            ENCODER_CCW_CW(KC_TRNS, KC_TRNS)
+            ENCODER_CCW_CW(KC_MS_WH_DOWN, KC_MS_WH_UP)
             },
     [4] =   {
             //Encoder 1
