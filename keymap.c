@@ -185,12 +185,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //,-----------------------------------------------------.                    ,-----------------------------------------------------.
             KC_ESC,   KC_F,   KC_R,     KC_D,   KC_P,   KC_V,                           SS_QU,   KC_M,   KC_U,     KC_O,   KC_Y,   KC_BSPC,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_TAB,  HOME_S,  HOME_N,  HOME_T,  HOME_C,   KC_B,                         KC_DOT, HOME_H,  HOME_E,  HOME_A,  HOME_I,  KC_ENT,
-        //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_LCTL,  KC_Z,    KC_X,    KC_K,    KC_G,    KC_W,                          KC_J,   KC_L,  KC_SLSH, KC_QUOT, KC_COMM, KC_DEL,
-        //                 KC_TAB,  KC_S,  KC_N,  KC_T,  KC_C,   KC_B,                         KC_DOT, KC_H,  KC_E,  KC_A,  KC_I,  KC_ENT,
+        //     KC_TAB,  HOME_S,  HOME_N,  HOME_T,  HOME_C,   KC_B,                         KC_DOT, HOME_H,  HOME_E,  HOME_A,  HOME_I,  KC_ENT,
         // //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        //     KC_LCTL,  HOME_Z,    HOME_X,    HOME_K,    HOME_G,    KC_W,                          KC_J,   HOME_L,  HOME_SLSH, HOME_QUOT, HOME_COMM, KC_DEL,
+        //     KC_LCTL,  KC_Z,    KC_X,    KC_K,    KC_G,    KC_W,                          KC_J,   KC_L,  KC_SLSH, KC_QUOT, KC_COMM, KC_DEL,
+                        KC_TAB,  KC_S,  KC_N,  KC_T,  KC_C,   KC_B,                         KC_DOT, KC_H,  KC_E,  KC_A,  KC_I,  KC_ENT,
+        //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+            KC_LCTL,  HOME_Z,    HOME_X,    HOME_K,    HOME_G,    KC_W,                          KC_J,   HOME_L,  HOME_SLSH, HOME_QUOT, HOME_COMM, KC_DEL,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
         KC_MUTE, MO(1), LT(3, KC_SPC), LCTL(KC_BSPC), QK_REP, OSM(MOD_LSFT), MO(2), LSG(KC_S) //snipping tool on press
         //`--------------------------'  `--------------------------'
@@ -231,7 +231,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
             KC_LCTL, KC_NO,   KC_NO,  KC_BSPC,  KC_DEL,  KC_NO,                        KC_PLUS,  KC_1,   KC_2,     KC_3,  KC_SLSH, KC_BSLS,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        KC_TRNS, KC_NO, KC_TRNS, KC_NO, KC_DEL, KC_BSPC, QK_REP, TO(0) //fps
+        KC_TRNS, KC_NO, KC_TRNS, KC_NO, KC_DEL, KC_BSPC, QK_REP, TO(5) //fps
         //`--------------------------'  `--------------------------'
         ),
 
@@ -251,7 +251,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Game (MOBA)
     [5] = LAYOUT(
         //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-            KC_ESC,   KC_F,    KC_R,    KC_D,    KC_P,   KC_V,                           SS_QU,   KC_M,   KC_U,     KC_O,   KC_Y,   KC_BSPC,
+            KC_LSFT,   KC_F,    KC_R,    KC_D,    KC_P,   KC_V,                           SS_QU,   KC_M,   KC_U,     KC_O,   KC_Y,   KC_BSPC,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
             KC_TAB,   KC_S,    KC_N,    KC_T,    KC_C,   KC_B,                         KC_DOT, HOME_H,  HOME_E,  HOME_A,  HOME_I,  KC_ENT,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
