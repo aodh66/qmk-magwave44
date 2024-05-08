@@ -140,8 +140,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 unregister_mods(MOD_MASK_CSAG);
                 if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
                     SEND_STRING("{}");
-                } else if ((mods | oneshot_mods) & MOD_MASK_CTRL) {
+                } else if ((mods | oneshot_mods) & MOD_MASK_ALT) {
                     SEND_STRING("<>");
+                } else if ((mods | oneshot_mods) & MOD_MASK_CTRL) {
+                    SEND_STRING("[]");
                 } else {
                     SEND_STRING("()");
                 }
@@ -231,7 +233,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
             KC_LCTL, KC_NO,   KC_NO,  KC_BSPC,  KC_DEL,  KC_NO,                        KC_PLUS,  KC_1,   KC_2,     KC_3,  KC_SLSH, KC_BSLS,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        KC_TRNS, KC_NO, KC_TRNS, KC_NO, KC_DEL, KC_BSPC, QK_REP, TO(5) //fps
+        KC_TRNS, KC_NO, KC_TRNS, KC_NO, KC_BSPC, KC_SPC, KC_DEL, TO(5) //moba
         //`--------------------------'  `--------------------------'
         ),
 
