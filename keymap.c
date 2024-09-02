@@ -68,6 +68,7 @@ enum custom_keycodes {
     // EMAIL = SAFE_RANGE,
     SS_QU = SAFE_RANGE,
     LINE_SELECT,
+    LINE_COPY,
     BRACES,
 };
 
@@ -145,6 +146,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             }
             break;
 
+        case LINE_COPY:
+            if (record->event.pressed) {
+                clear_oneshot_mods(); // Temporarily disable mods.
+                tap_code(KC_HOME);   // Move cursor to start of line.
+                register_code(KC_LSFT);// Hold Shift to select.
+                tap_code(KC_END);   // Move cursor to end of line.
+                unregister_code(KC_LSFT); // Stops holding Shift.
+                register_code(KC_LCTL);// Hold Ctrl to copy.
+                tap_code(KC_C);   // Copy selection.
+                unregister_code(KC_LCTL); // Stops holding Ctrl.
+            }
+            break;
+
         case BRACES: // Types [], {}, or <> and puts cursor between braces.
             if (record->event.pressed) {
                 clear_oneshot_mods(); // Temporarily disable mods.
@@ -203,7 +217,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //     KC_LCTL,  KC_Z,    KC_X,    KC_K,    KC_G,    KC_W,                          KC_J,   KC_L,  KC_SLSH, KC_QUOT, KC_COMM, KC_DEL,
                         KC_TAB,  KC_S,  KC_N,  KC_T,  KC_C,   KC_B,                         KC_DOT, KC_H,  KC_E,  KC_A,  KC_I,  KC_ENT,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_LCTL,  HOME_Z,    HOME_X,    HOME_K,    HOME_G,    KC_W,                          KC_J,   HOME_L,  HOME_SLSH, HOME_QUOT, HOME_COMM, LINE_SELECT,
+            KC_NO,  HOME_Z,    HOME_X,    HOME_K,    HOME_G,    KC_W,                          KC_J,   HOME_L,  HOME_SLSH, HOME_QUOT, HOME_COMM, LINE_SELECT,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
         KC_MUTE, MO(1), LT(3, KC_SPC), LCTL(KC_BSPC), QK_REP, OSM(MOD_LSFT), MO(2), LSG(KC_S) //snipping tool on press
         //`--------------------------'  `--------------------------'
@@ -212,11 +226,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Nav/Ext
     [1] = LAYOUT(
         //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-            KC_ESC,  KC_TAB,  KC_TAB, CW_TOGG, KC_CAPS, KC_HYPR,                      KC_PGUP, KC_HOME,  BRACES,  KC_END,  KC_BSPC, KC_DEL,
+            KC_ESC,  KC_TAB,  KC_TAB, KC_HYPR, CW_TOGG, KC_CAPS,                      KC_PGUP, KC_HOME,  BRACES,  KC_END,  KC_BSPC, KC_DEL,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        LALT(KC_TAB), KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_MEH,                      KC_PGDN, KC_LEFT, KC_DOWN,  KC_UP,  KC_RGHT,  KC_ENT,
+        KC_NO, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_MEH,                      KC_PGDN, KC_LEFT, KC_DOWN,  KC_UP,  KC_RGHT,  KC_ENT,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        LCTL(KC_TAB), LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_F),      QK_REP,  KC_DEL,  KC_NO,   KC_TAB,  KC_ESC, LINE_SELECT,
+        KC_NO, LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_F),      KC_DEL,  LCTL(KC_TAB),  RCS(KC_TAB),   LALT(KC_TAB),  LCA(KC_TAB), LINE_COPY,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
         KC_TRNS, KC_TRNS, KC_NO, KC_NO, QK_REP, CW_TOGG, MO(4), TO(0) //moba
         //`--------------------------'  `--------------------------'
@@ -229,7 +243,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
             KC_TAB,  KC_GRV,   KC_LT,  KC_LCBR, KC_LPRN, KC_LBRC,                      KC_EQL, KC_RCTL, KC_RSFT, KC_RALT, KC_RGUI, KC_ENT,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_LCTL, KC_TILD, KC_GT,  KC_RCBR, KC_RPRN, KC_RBRC,                      KC_PLUS, KC_MINS, KC_SCLN, KC_COLN, KC_BSLS, LINE_SELECT,
+            KC_LCTL, KC_TILD, KC_GT,  KC_RCBR, KC_RPRN, KC_RBRC,                      KC_PLUS, KC_MINS, KC_COLN, KC_SCLN, KC_BSLS, LINE_SELECT,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
         KC_TRNS, MO(4), KC_ENT, KC_BSPC, KC_NO, KC_NO, KC_TRNS, TO(0)
         //`--------------------------'  `--------------------------'
@@ -251,11 +265,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Function
     [4] = LAYOUT(
         //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-            KC_NO,   KC_NO,   KC_NO,  QK_BOOT,  KC_NO,  KC_VOLU,                       KC_NO,    KC_F7,  KC_F8,   KC_F9,   KC_NO,  XXXXXXX,
+            KC_NO,   LALT(KC_F4),   KC_NO,  QK_BOOT,  KC_NO,  KC_VOLU,                       KC_NO,    KC_F7,  KC_F8,   KC_F9,   KC_NO,  KC_NO,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_NO,  KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_VOLD,                       KC_F12,   KC_F4,  KC_F5,   KC_F6,   KC_F10, XXXXXXX,
+            KC_NO,  KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_VOLD,                       KC_F12,   KC_F4,  KC_F5,   KC_F6,   KC_F10, KC_NO,
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-          XXXXXXX, LALT(KC_F4), KC_NO, KC_NO,  KC_MPLY,  KC_NO,                        KC_F11,   KC_F1,  KC_F2,   KC_F3,   KC_NO,  TO(4),
+          KC_NO, KC_NO, KC_NO, KC_NO,  KC_MPLY,  KC_NO,                        KC_F11,   KC_F1,  KC_F2,   KC_F3,   KC_NO,  TO(4),
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
         KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, TO(0)
         //`--------------------------'  `--------------------------'
