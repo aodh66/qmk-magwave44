@@ -11,7 +11,7 @@
 // * -----------------------------
 #define CTL_BSPC LCTL(KC_BSPC)
 // Left-hand
-    // Default
+    // Default Home Row
 #define HOME_S LGUI_T(KC_S)
 #define HOME_N LALT_T(KC_N)
 #define HOME_T LSFT_T(KC_T)
@@ -24,7 +24,7 @@
 #define HOME_G LCTL_T(KC_G)
 
 // Right-hand
-    // Default
+    // Default Home Row
 #define HOME_H RCTL_T(KC_H)
 #define HOME_E RSFT_T(KC_E)
 #define HOME_A LALT_T(KC_A)
@@ -81,15 +81,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
             KC_ESC,    KC_F,    KC_R,     KC_D,     KC_P,    KC_V,               SS_QU,    KC_M,    KC_U,     KC_O,    KC_Y,    KC_DEL,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
+        // Default Home Row
         // //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-        //     KC_TAB,    KC_S,    KC_N,     KC_T,     KC_C,    KC_B,              KC_DOT,    KC_H,    KC_E,     KC_A,    KC_I,    KC_ENT,
+        //     KC_TAB,   HOME_S,  HOME_N,   HOME_T,   HOME_C,   KC_B,              KC_DOT,   HOME_H,  HOME_E,   HOME_A,   HOME_I,  KC_ENT,
         // //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            // KC_NO,    HOME_Z,  HOME_X,   HOME_K,   HOME_G,   KC_W,               KC_J,    HOME_L,  HOME_SL,  HOME_QT, HOME_CM,LINE_SELECT,
+        //     KC_NO,     KC_Z,    KC_X,     KC_K,     KC_G,    KC_W,               KC_J,     KC_L,   KC_SLSH,  KC_QUOT, KC_COMM, LINE_SELECT,
         // //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
+        // Bottom Home Row
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_TAB,   HOME_S,  HOME_N,   HOME_T,   HOME_C,   KC_B,              KC_DOT,   HOME_H,  HOME_E,   HOME_A,   HOME_I,  KC_ENT,
+            KC_TAB,    KC_S,    KC_N,     KC_T,     KC_C,    KC_B,              KC_DOT,    KC_H,    KC_E,     KC_A,    KC_I,    KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_NO,     KC_Z,    KC_X,     KC_K,     KC_G,    KC_W,               KC_J,     KC_L,   KC_SLSH,  KC_QUOT, KC_COMM, LINE_SELECT,
+            KC_NO,    HOME_Z,  HOME_X,   HOME_K,   HOME_G,   KC_W,               KC_J,    HOME_L,  HOME_SL,  HOME_QT, HOME_CM,LINE_SELECT,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //              ┌──────────┐┌─────────┬──────────┬────────────┐         ┌──────────┬───────────┬─────────┐┌───────────┐
                           KC_MUTE,    MO(1),    KC_SPC,   CTL_BSPC,              MO(4),    QK_AREP,    MO(2),    LSG(KC_S)        //snipping tool on press
@@ -326,10 +328,10 @@ bool remember_last_key_user(uint16_t keycode, keyrecord_t* record,
 // #endif  // NO_ACTION_TAPPING
 //   }
 
-  // Forget Shift on most letters when Shift or AltGr are the only mods. Some
-  // letters are excluded, e.g. for "NN" and "ZZ" in Vim.
+  // Forget Shift on most letters when Shift or AltGr are the only mods.
   switch (keycode) {
     case QK_AREP: return false;
+
     case KC_A ... KC_Z:
       if ((*remembered_mods & ~(MOD_MASK_SHIFT | MOD_BIT(KC_RALT))) == 0) {
         *remembered_mods &= ~MOD_MASK_SHIFT;
@@ -351,7 +353,7 @@ if ((mods & ~MOD_MASK_SHIFT) == 0) {
       case LCTL(KC_BSPC):
         return ONE_SHOT_SHIFT;
 
-      // Fix SFBs and awkward strokes.
+      // * Universal
         case KC_F: return KC_F;
         case KC_R: return KC_R;
         case KC_D: return KC_D;
@@ -359,38 +361,39 @@ if ((mods & ~MOD_MASK_SHIFT) == 0) {
         case KC_B: return KC_B;
         case KC_M: return KC_M;
         case KC_O: return KC_O;
-
-        // case KC_S: return KC_S;
-        // case KC_N: return KC_N;
-        // case KC_T: return KC_T;
-        // case KC_C: return KC_C;
-        // case HOME_Z: return KC_Z;
-        // case HOME_G: return KC_G;
-        // case KC_E: return KC_E;
-        // case HOME_L: return KC_L;
-        // case KC_A: SEND_STRING("nd"); return false;
-        
-        case HOME_S: return KC_S;
-        case HOME_N: return KC_N;
-        case HOME_T: return KC_T;
-        case HOME_C: return KC_C;
-        case KC_Z: return KC_Z;
-        case KC_G: return KC_G;
-        case HOME_E: return KC_E;
-        case KC_L: return KC_L;
-        case HOME_A: SEND_STRING("nd"); return false;
-
+        case KC_1 ... KC_0: return KC_DOT;
         // case LCTL(KC_BSPC): return C(KC_Z);
 
+      // Default Home Row
+        // case HOME_S: return KC_S;
+        // case HOME_N: return KC_N;
+        // case HOME_T: return KC_T;
+        // case HOME_C: return KC_C;
+        // case KC_Z: return KC_Z;
+        // case KC_G: return KC_G;
+        // case HOME_E: return KC_E;
+        // case KC_L: return KC_L;
+        // case HOME_A: SEND_STRING("nd"); return false;
+
+      // Bottom Home Row
+        case KC_S: return KC_S;
+        case KC_N: return KC_N;
+        case KC_T: return KC_T;
+        case KC_C: return KC_C;
+        case HOME_Z: return KC_Z;
+        case HOME_G: return KC_G;
+        case KC_E: return KC_E;
+        case HOME_L: return KC_L;
+        case KC_A: SEND_STRING("nd"); return false;
+        
         // case KC_SPC: return OSS;
         // case KC_ENT: return OSS;
         // case KC_DOT: return OSS;
         
-        case KC_1 ... KC_0: return KC_DOT;
     }
   }
-  return KC_TRNS;
-//   return KC_LSFT;
+//   return KC_TRNS;
+  return KC_LSFT;
 //   return ONE_SHOT_SHIFT;
 }
 
@@ -659,13 +662,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
             }
             break;
-
-            // case LSFT_T(QK_AREP):
-            // if (record->tap.count && record->event.pressed) {
-            //     tap_code16(QK_AREP); // Send QK_AREP on tap
-            //     return false;        // Return false to ignore further processing of key
-            // }
-            // break;
 
         case BRACES: // Types [], {}, or <> and puts cursor between braces.
             if (record->event.pressed) {
