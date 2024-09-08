@@ -4,7 +4,8 @@
  */
 
 #include QMK_KEYBOARD_H
-#include "features/achordion.h"
+// ? Achordion
+// #include "features/achordion.h"
 
 // * -----------------------------
 // * -- Home row mods (Recurva) --
@@ -12,10 +13,10 @@
 #define CTL_BSPC LCTL(KC_BSPC)
 // Left-hand
     // Default Home Row
-#define HOME_S LGUI_T(KC_S)
-#define HOME_N LALT_T(KC_N)
-#define HOME_T LSFT_T(KC_T)
-#define HOME_C LCTL_T(KC_C)
+// #define HOME_S LGUI_T(KC_S)
+// #define HOME_N LALT_T(KC_N)
+// #define HOME_T LSFT_T(KC_T)
+// #define HOME_C LCTL_T(KC_C)
 
     // Bottom Row
 #define HOME_Z LGUI_T(KC_Z)
@@ -25,10 +26,10 @@
 
 // Right-hand
     // Default Home Row
-#define HOME_H RCTL_T(KC_H)
-#define HOME_E RSFT_T(KC_E)
-#define HOME_A LALT_T(KC_A)
-#define HOME_I RGUI_T(KC_I)
+// #define HOME_H RCTL_T(KC_H)
+// #define HOME_E RSFT_T(KC_E)
+// #define HOME_A LALT_T(KC_A)
+// #define HOME_I RGUI_T(KC_I)
 
     // Bottom Row
 #define HOME_L RCTL_T(KC_L)
@@ -50,9 +51,6 @@
 
 #define ALT_F4 LALT(KC_F4)
 
-// #define MAGIC QK_AREP
-// #define OSS OSM(MOD_LSFT)
-
 // * ------------------------
 // * -- Macro Declarations --
 // * ------------------------
@@ -63,7 +61,21 @@ enum custom_keycodes {
     BRACES,
     MAGIC,
     ONE_SHOT_SHIFT,
+
+    // SM-Tap Dance Home Row Mods
+    SMTD_KEYCODES_BEGIN,
+    HOME_H,
+    HOME_E,
+    HOME_A,
+    HOME_I,
+    HOME_S,
+    HOME_N,
+    HOME_T,
+    HOME_C,
+    SFT_MAGIC,
+    SMTD_KEYCODES_END,
 };
+#include "sm_td/sm_td.h"
 
 // * -------------------------------------------
 // * -- Combos (Currently set up for Recurva) --
@@ -82,33 +94,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_ESC,    KC_F,    KC_R,     KC_D,     KC_P,    KC_V,               SS_QU,    KC_M,    KC_U,     KC_O,    KC_Y,    KC_DEL,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         // Default Home Row
-        // //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-        //     KC_TAB,   HOME_S,  HOME_N,   HOME_T,   HOME_C,   KC_B,              KC_DOT,   HOME_H,  HOME_E,   HOME_A,   HOME_I,  KC_ENT,
-        // //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-        //     KC_NO,     KC_Z,    KC_X,     KC_K,     KC_G,    KC_W,               KC_J,     KC_L,   KC_SLSH,  KC_QUOT, KC_COMM, LINE_SELECT,
-        // //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
-        // Bottom Home Row
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_TAB,    KC_S,    KC_N,     KC_T,     KC_C,    KC_B,              KC_DOT,    KC_H,    KC_E,     KC_A,    KC_I,    KC_ENT,
+            KC_TAB,   HOME_S,  HOME_N,   HOME_T,   HOME_C,   KC_B,              KC_DOT,   HOME_H,  HOME_E,   HOME_A,   HOME_I,  KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_NO,    HOME_Z,  HOME_X,   HOME_K,   HOME_G,   KC_W,               KC_J,    HOME_L,  HOME_SL,  HOME_QT, HOME_CM,LINE_SELECT,
+            KC_NO,     KC_Z,    KC_X,     KC_K,     KC_G,    KC_W,               KC_J,     KC_L,   KC_SLSH,  KC_QUOT, KC_COMM, LINE_SELECT,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
+        // Bottom Home Row
+        // //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
+        //     KC_TAB,    KC_S,    KC_N,     KC_T,     KC_C,    KC_B,              KC_DOT,    KC_H,    KC_E,     KC_A,    KC_I,    KC_ENT,
+        // //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
+        //     KC_NO,    HOME_Z,  HOME_X,   HOME_K,   HOME_G,   KC_W,               KC_J,    HOME_L,  HOME_SL,  HOME_QT, HOME_CM,LINE_SELECT,
+        // //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //              ┌──────────┐┌─────────┬──────────┬────────────┐         ┌──────────┬───────────┬─────────┐┌───────────┐
-                          KC_MUTE,    MO(1),    KC_SPC,   CTL_BSPC,              MO(4),    QK_AREP,    MO(2),    LSG(KC_S)        //snipping tool on press
+                          KC_MUTE,    MO(1),    KC_SPC,   CTL_BSPC,             CTL_BSPC,  QK_AREP,    MO(2),    LSG(KC_S)        //snipping tool on press
         //              └──────────┘└─────────┴──────────┴────────────┘         └──────────┴───────────┴─────────┘└───────────┘
         ),
 
     // * Nav/Ext
     [1] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_ESC,   KC_TAB,  KC_TAB,  KC_HYPR,  CW_TOGG,  KC_CAPS,            KC_PGUP, KC_HOME,  BRACES,   KC_END,  KC_BSPC,  KC_DEL,
+            KC_ESC,   ALT_F4,  KC_TAB,  KC_HYPR,  CW_TOGG,  KC_CAPS,            KC_PGUP, KC_HOME,  BRACES,   KC_END,  KC_BSPC,  KC_DEL,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             KC_NO,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL, KC_MEH,             KC_PGDN, KC_LEFT,  KC_DOWN,  KC_UP,   KC_RGHT,  KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             KC_NO,     UNDO,     CUT,     COPY,    PASTE,    FIND,              KC_DEL,  NXT_TAB,  PRE_TAB,  NXT_WIN, PRE_WIN, LINE_COPY,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //              ┌──────────┐┌─────────┬──────────┬────────────┐         ┌──────────┬───────────┬─────────┐┌───────────┐
-                          KC_TRNS,   KC_TRNS,   KC_NO,      KC_NO,               QK_REP,   CW_TOGG,    MO(3),      TO(0)       //moba
+                          KC_TRNS,   KC_TRNS,   KC_NO,      KC_NO,                MO(4),   CW_TOGG,    MO(3),      TO(0)       //moba
         //              └──────────┘└─────────┴──────────┴────────────┘         └──────────┴───────────┴─────────┘└───────────┘
         ),
 
@@ -129,11 +141,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // * Numpad
     [3] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_ESC,   KC_NO,    KC_NO,   KC_NO,    KC_NO,    KC_NO,             KC_MINS,  KC_7,     KC_8,     KC_9,    KC_ASTR, KC_SLSH,
+            KC_ESC,   KC_NO,    KC_NO,   QK_BOOT,  KC_NO,   KC_VOLU,            KC_MINS,  KC_7,     KC_8,     KC_9,    KC_ASTR, KC_SLSH,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_TAB,  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  KC_NO,             KC_DOT,   KC_4,     KC_5,     KC_6,    KC_0,    KC_ENT,
+            KC_TAB,  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL, KC_VOLD,            KC_DOT,   KC_4,     KC_5,     KC_6,    KC_0,    KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_LCTL,  KC_NO,    KC_NO,   KC_BSPC,  KC_DEL,   KC_NO,             KC_PLUS,  KC_1,     KC_2,     KC_3,    KC_SLSH, KC_BSLS,
+            KC_LCTL,  KC_NO,    KC_NO,   KC_BSPC,  KC_DEL,  KC_MPLY,            KC_PLUS,  KC_1,     KC_2,     KC_3,    KC_SLSH, KC_BSLS,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //              ┌──────────┐┌─────────┬──────────┬────────────┐         ┌──────────┬───────────┬─────────┐┌───────────┐
                           KC_TRNS,    KC_NO,    KC_NO,      KC_NO,               KC_NO,     KC_NO,    KC_TRNS,     TO(0)      //moba
@@ -253,60 +265,92 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 // * ------------------
 // * -- Tapping Term --
 // * ------------------
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
-  switch (keycode) {
-    // Increase the tapping term a little for slower ring and pinky fingers.
-    case HOME_S:
-    case HOME_N:
-    case HOME_A:
-    case HOME_I:
-      return TAPPING_TERM + 15;
+// uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
+//   switch (keycode) {
+//     // Increase the tapping term a little for slower ring and pinky fingers.
+//     case HOME_S:
+//     case HOME_N:
+//     case HOME_A:
+//     case HOME_I:
+//     case HOME_Z:
+//     case HOME_X:
+//     case HOME_QT:
+//     case HOME_CM:
+//       return TAPPING_TERM + 15;
 
-    default:
-      return TAPPING_TERM;
-  }
+//     default:
+//       return TAPPING_TERM;
+//   }
+// }
+
+// * ------------------
+// * -- SM-Tap Dance --
+// * ------------------
+void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
+    switch (keycode) {
+        SMTD_MTE(HOME_H, KC_H, KC_RIGHT_CTRL)
+        SMTD_MTE(HOME_E, KC_E, KC_RSFT)
+        SMTD_MT(HOME_A, KC_A, KC_RIGHT_ALT)
+        SMTD_MT(HOME_I, KC_I, KC_RIGHT_GUI)
+
+        SMTD_MT(HOME_S, KC_S, KC_LEFT_GUI)
+        SMTD_MT(HOME_N, KC_N, KC_LEFT_ALT)
+        SMTD_MTE(HOME_T, KC_T, KC_LSFT)
+        SMTD_MTE(HOME_C, KC_C, KC_LEFT_CTRL)
+    }
+}
+
+uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
+    switch (keycode) {
+        case HOME_I:
+        case HOME_S:
+            if (timeout == SMTD_TIMEOUT_TAP) return 200;
+    }
+
+    return get_smtd_timeout_default(timeout);
 }
 
 // * ---------------
 // * -- Accordion --
 // * ---------------
-bool achordion_eager_mod(uint8_t mod) {
-    switch (mod) {
-        case MOD_LSFT:
-        case MOD_RSFT:
-        case MOD_LCTL:
-        case MOD_RCTL:
-            return true; // Eagerly apply Shift and Ctrl mods.
+// ? Achordion
+// bool achordion_eager_mod(uint8_t mod) {
+//     switch (mod) {
+//         case MOD_LSFT:
+//         case MOD_RSFT:
+//         case MOD_LCTL:
+//         case MOD_RCTL:
+//             return true; // Eagerly apply Shift and Ctrl mods.
 
-        default:
-            return false;
-    }
-}
-
-// bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
-//                      uint16_t other_keycode, keyrecord_t* other_record) {
-//     // Otherwise, follow the opposite hands rule.
-//     return achordion_opposite_hands(tap_hold_record, other_record);
+//         default:
+//             return false;
+//     }
 // }
 
-uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
-    return 800; // Use a timeout of 800 ms.
-}
+// // bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
+// //                      uint16_t other_keycode, keyrecord_t* other_record) {
+// //     // Otherwise, follow the opposite hands rule.
+// //     return achordion_opposite_hands(tap_hold_record, other_record);
+// // }
 
-// Typing Streak
-uint16_t achordion_streak_timeout(uint16_t tap_hold_keycode) {
-    if (IS_QK_LAYER_TAP(tap_hold_keycode)) {
-        return 0; // Disable streak detection on layer-tap keys.
-    }
+// uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
+//     return 800; // Use a timeout of 800 ms.
+// }
 
-    // Otherwise, tap_hold_keycode is a mod-tap key.
-    uint8_t mod = mod_config(QK_MOD_TAP_GET_MODS(tap_hold_keycode));
-    if ((mod & MOD_LSFT) != 0) {
-    return 0;  // Disable for Shift mod-tap keys.
-  } else {
-    return 100;
-  }
-}
+// // Typing Streak
+// uint16_t achordion_streak_timeout(uint16_t tap_hold_keycode) {
+//     if (IS_QK_LAYER_TAP(tap_hold_keycode)) {
+//         return 0; // Disable streak detection on layer-tap keys.
+//     }
+
+//     // Otherwise, tap_hold_keycode is a mod-tap key.
+//     uint8_t mod = mod_config(QK_MOD_TAP_GET_MODS(tap_hold_keycode));
+//     if ((mod & MOD_LSFT) != 0) {
+//     return 0;  // Disable for Shift mod-tap keys.
+//   } else {
+//     return 100;
+//   }
+// }
 
 // * ----------------------------
 // * -- Magic/Alternate Repeat --
@@ -341,37 +385,38 @@ uint16_t achordion_streak_timeout(uint16_t tap_hold_keycode) {
         case KC_M: return KC_M;
         case KC_O: return KC_O;
         case KC_1 ... KC_0: return KC_DOT;
+        // case KC_DOT: return KC_SPC;
         // case LCTL(KC_BSPC): return C(KC_Z);
 
       // Default Home Row
-        // case HOME_S: return KC_S;
-        // case HOME_N: return KC_N;
-        // case HOME_T: return KC_T;
-        // case HOME_C: return KC_C;
-        // case KC_Z: return KC_Z;
-        // case KC_G: return KC_G;
-        // case HOME_E: return KC_E;
-        // case KC_L: return KC_L;
-        // case HOME_A: SEND_STRING("nd"); return false;
+        case HOME_S: return KC_S;
+        case HOME_N: return KC_N;
+        case HOME_T: return KC_T;
+        case HOME_C: return KC_C;
+        case KC_Z: return KC_Z;
+        case KC_G: return KC_G;
+        case HOME_E: return KC_E;
+        case KC_L: return KC_L;
+        case HOME_A: SEND_STRING("nd"); return false;
 
       // Bottom Home Row
-        case KC_S: return KC_S;
-        case KC_N: return KC_N;
-        case KC_T: return KC_T;
-        case KC_C: return KC_C;
-        case HOME_Z: return KC_Z;
-        case HOME_G: return KC_G;
-        case KC_E: return KC_E;
-        case HOME_L: return KC_L;
-        case KC_A: SEND_STRING("nd"); return false;
+        // case KC_S: return KC_S;
+        // case KC_N: return KC_N;
+        // case KC_T: return KC_T;
+        // case KC_C: return KC_C;
+        // case HOME_Z: return KC_Z;
+        // case HOME_G: return KC_G;
+        // case KC_E: return KC_E;
+        // case HOME_L: return KC_L;
+        // case KC_A: SEND_STRING("nd"); return false;
 
-            case KC_SPC: return ONE_SHOT_SHIFT;
-            case KC_ENT: return ONE_SHOT_SHIFT;
-            case KC_DOT: return KC_SPC;
-            case KC_TAB: return ONE_SHOT_SHIFT;
-            case KC_BSPC: return ONE_SHOT_SHIFT;
-            case LCTL(KC_BSPC): return ONE_SHOT_SHIFT;
-            // case CTL_BSPC: return OSS;
+        case KC_DOT: return ONE_SHOT_SHIFT;
+        case KC_SPC: return ONE_SHOT_SHIFT;
+        case KC_ENT: return ONE_SHOT_SHIFT;
+        case KC_TAB: return ONE_SHOT_SHIFT;
+        case KC_BSPC: return ONE_SHOT_SHIFT;
+        case LCTL(KC_BSPC): return ONE_SHOT_SHIFT;
+        // case CTL_BSPC: return OSS;
         }
 
         return ONE_SHOT_SHIFT;
@@ -379,93 +424,98 @@ uint16_t achordion_streak_timeout(uint16_t tap_hold_keycode) {
 
 // * Magic
 // ! empressabyss (custom key), can only repeat once, does not work with caps word
-    bool remember_last_key_user(uint16_t keycode, keyrecord_t* record,
-                                uint8_t* remembered_mods) {
-        switch (keycode) {
-            case CW_TOGG:
-            case KC_ESC:
-            case KC_LALT:
-            case KC_RALT:
+    // bool remember_last_key_user(uint16_t keycode, keyrecord_t* record,
+    //                             uint8_t* remembered_mods) {
+    //     switch (keycode) {
+    //         case CW_TOGG:
+    //         case KC_ESC:
+    //         case KC_LALT:
+    //         case KC_RALT:
     
-            case MAGIC:
-                return false;  // Magic keys will ignore the above keycodes.
-        }
-        return true;  // Other keys can be repeated.
-    }
+    //         case MAGIC:
+    //             return false;  // Magic keys will ignore the above keycodes.
+    //     }
+    //     return true;  // Other keys can be repeated.
+    // }
 
-    // An enhanced version of SEND_STRING: if Caps Word is active, the Shift key is
-    // held while sending the string. Additionally, the last key is set such that if
-    // the Repeat Key is pressed next, it produces `repeat_keycode`.
-    #define MAGIC_STRING(str, repeat_keycode) \
-            magic_send_string_P(PSTR(str), (repeat_keycode))
+    // // An enhanced version of SEND_STRING: if Caps Word is active, the Shift key is
+    // // held while sending the string. Additionally, the last key is set such that if
+    // // the Repeat Key is pressed next, it produces `repeat_keycode`.
+    // #define MAGIC_STRING(str, repeat_keycode) \
+    //         magic_send_string_P(PSTR(str), (repeat_keycode))
     
-    static void magic_send_string_P(const char* str, uint16_t repeat_keycode) {
-        uint8_t saved_mods = 0;
+    // static void magic_send_string_P(const char* str, uint16_t repeat_keycode) {
+    //     uint8_t saved_mods = 0;
 
-      if (is_caps_word_on()) { // If Caps Word is on, save the mods and hold Shift.
-        saved_mods = get_mods();
-        register_mods(MOD_BIT(KC_LSFT));
-      }
+    //   if (is_caps_word_on()) { // If Caps Word is on, save the mods and hold Shift.
+    //     saved_mods = get_mods();
+    //     register_mods(MOD_BIT(KC_LSFT));
+    //   }
     
-    // If there is a repeat keycode, set it and send it. If not, then send the string and set it.
-    if (repeat_keycode != 0) {
-      set_last_keycode(repeat_keycode); // 2024-03-09 Disabled sending of string for mag-rep / rep-mag consistency.
-      tap_code(repeat_keycode); // send the repeat keycode
-    } else if (repeat_keycode == 0 && strcmp(str, "") != 0) {
-      send_string_with_delay_P(str, TAP_CODE_DELAY);  // Send the string.
-      set_last_keycode(repeat_keycode); // 2024-03-09 Disabled sending of string for mag-rep / rep-mag consistency.
-    } 
+    // // If there is a repeat keycode, set it and send it. If not, then send the string and set it.
+    // if (repeat_keycode != 0) {
+    //   set_last_keycode(repeat_keycode); // 2024-03-09 Disabled sending of string for mag-rep / rep-mag consistency.
+    //   tap_code(repeat_keycode); // send the repeat keycode
+    // } else if (repeat_keycode == 0 && strcmp(str, "") != 0) {
+    //   send_string_with_delay_P(str, TAP_CODE_DELAY);  // Send the string.
+    //   set_last_keycode(repeat_keycode); // 2024-03-09 Disabled sending of string for mag-rep / rep-mag consistency.
+    // } 
 
-      // If Caps Word is on, restore the mods.
-      if (is_caps_word_on()) {
-        set_mods(saved_mods);
-      }
-    }
+    //   // If Caps Word is on, restore the mods.
+    //   if (is_caps_word_on()) {
+    //     set_mods(saved_mods);
+    //   }
+    // }
 
-    static void process_magic_key(uint16_t keycode, uint8_t mods) { // LMAGIC definitions
-        switch (keycode) {
-            case KC_A: { MAGIC_STRING("nd",         KC_NO); } break;
-            case  KC_B: { MAGIC_STRING("b",    KC_NO); } break;
-            case  KC_C: { MAGIC_STRING("c",        KC_NO); } break;
-          case KC_D: { MAGIC_STRING("d",         KC_NO); } break;
-            case KC_E: { MAGIC_STRING("e",         KC_NO); } break;
-          case  KC_F: { MAGIC_STRING("f",         KC_NO); } break;
-            case  HOME_G: { MAGIC_STRING("g",    KC_NO); } break;
-            case KC_I: { MAGIC_STRING("ng",         KC_NO); } break;
-            case  KC_J: { MAGIC_STRING("ust",       KC_NO); } break;
-          case HOME_L: { MAGIC_STRING("l",         KC_NO); } break;
-            case  KC_M: { MAGIC_STRING("m",       KC_NO); } break;
-            case  KC_N: { MAGIC_STRING("n",       KC_NO); } break;
-            case  KC_O: { MAGIC_STRING("o",         KC_NO); } break;
-            case  KC_P: { MAGIC_STRING("p",     KC_NO); } break;
-          case KC_R: { MAGIC_STRING("r",         KC_NO); } break;
-          case KC_S: { MAGIC_STRING("s",         KC_NO); } break;
-            case  KC_T: { MAGIC_STRING("t",         KC_NO); } break;
-            case  HOME_Z: { MAGIC_STRING("z",         KC_NO); } break;
+    // static void process_magic_key(uint16_t keycode, uint8_t mods) { // LMAGIC definitions
+    //     switch (keycode) {
+    //         case KC_A: { MAGIC_STRING("nd",         KC_NO); } break;
+    //         case  KC_B: { MAGIC_STRING("b",    KC_NO); } break;
+    //         case  KC_C: { MAGIC_STRING("c",        KC_NO); } break;
+    //       case KC_D: { MAGIC_STRING("d",         KC_NO); } break;
+    //         case KC_E: { MAGIC_STRING("e",         KC_NO); } break;
+    //       case  KC_F: { MAGIC_STRING("f",         KC_NO); } break;
+    //         case  HOME_G: { MAGIC_STRING("g",    KC_NO); } break;
+    //         case KC_I: { MAGIC_STRING("ng",         KC_NO); } break;
+    //         case  KC_J: { MAGIC_STRING("ust",       KC_NO); } break;
+    //       case HOME_L: { MAGIC_STRING("l",         KC_NO); } break;
+    //         case  KC_M: { MAGIC_STRING("m",       KC_NO); } break;
+    //         case  KC_N: { MAGIC_STRING("n",       KC_NO); } break;
+    //         case  KC_O: { MAGIC_STRING("o",         KC_NO); } break;
+    //         case  KC_P: { MAGIC_STRING("p",     KC_NO); } break;
+    //       case KC_R: { MAGIC_STRING("r",         KC_NO); } break;
+    //       case KC_S: { MAGIC_STRING("s",         KC_NO); } break;
+    //         case  KC_T: { MAGIC_STRING("t",         KC_NO); } break;
+    //         case  HOME_Z: { MAGIC_STRING("z",         KC_NO); } break;
 
-            case  KC_DOT: { MAGIC_STRING(" ",         KC_NO); } break;
+    //         case  KC_DOT: { MAGIC_STRING(" ",         KC_NO); } break;
 
-            case KC_NO: { MAGIC_STRING("",         KC_NO); } break;
+    //         case KC_NO: { MAGIC_STRING("",         KC_NO); } break;
 
-            // case KC_SPC: { MAGIC_STRING("",         KC_NO); } break;
-            // case KC_ENT: { MAGIC_STRING("",         KC_NO); } break;
-            // case KC_TAB: { MAGIC_STRING("",         KC_NO); } break;
-            // case KC_BSPC: { MAGIC_STRING("",         KC_NO); } break;
-            // case KC_DEL: { MAGIC_STRING("",         KC_NO); } break;
-            // case LCTL(KC_BSPC): { MAGIC_STRING("",         KC_NO); } break;
-            // case LCTL(KC_DEL): { MAGIC_STRING("",         KC_NO); } break;
+    //         // case KC_SPC: { MAGIC_STRING("",         KC_NO); } break;
+    //         // case KC_ENT: { MAGIC_STRING("",         KC_NO); } break;
+    //         // case KC_TAB: { MAGIC_STRING("",         KC_NO); } break;
+    //         // case KC_BSPC: { MAGIC_STRING("",         KC_NO); } break;
+    //         // case KC_DEL: { MAGIC_STRING("",         KC_NO); } break;
+    //         // case LCTL(KC_BSPC): { MAGIC_STRING("",         KC_NO); } break;
+    //         // case LCTL(KC_DEL): { MAGIC_STRING("",         KC_NO); } break;
 
-            default: set_oneshot_mods(MOD_BIT(KC_LSFT));
-        }
-    }
+    //         default: set_oneshot_mods(MOD_BIT(KC_LSFT));
+    //     }
+    // }
 
 // * ------------
 // * -- Macros --
 // * ------------
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-    if (!process_achordion(keycode, record)) {
+    if (!process_smtd(keycode, record)) {
         return false;
     }
+
+    // ? Achordion
+    // if (!process_achordion(keycode, record)) {
+    //     return false;
+    // }
 
     // ! Might be in wrong place
     const uint8_t mods         = get_mods();
@@ -474,11 +524,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     switch (keycode) {
             // * Macros
     // ! Magic empressabyss
-            case MAGIC: { 
-                process_magic_key(get_last_keycode(), get_last_mods()); 
-                set_last_keycode(KC_NO); 
-                } 
-            break;
+            // case MAGIC: { 
+            //     process_magic_key(get_last_keycode(), get_last_mods()); 
+            //     set_last_keycode(KC_NO); 
+            //     } 
+            // break;
 
         case SS_QU:
             if (record->event.pressed) {
@@ -538,7 +588,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     return true;
 };
 
-
-void matrix_scan_user(void) {
-    achordion_task();
-}
+// ? Achordion
+// void matrix_scan_user(void) {
+//     achordion_task();
+// }
