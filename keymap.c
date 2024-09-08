@@ -112,17 +112,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_ESC,    KC_F,    KC_R,     KC_D,     KC_P,    KC_V,               SS_QU,    KC_M,    KC_U,     KC_O,    KC_Y,    KC_DEL,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         // Default Home Row
-        //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_TAB,   HOME_S,  HOME_N,   HOME_T,   HOME_C,   KC_B,              KC_DOT,   HOME_H,  HOME_E,   HOME_A,   HOME_I,  KC_ENT,
-        //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            QK_BOOT,     KC_Z,    KC_X,     KC_K,     KC_G,    KC_W,               KC_J,     KC_L,   KC_SLSH,  KC_QUOT, KC_COMM, LINE_SELECT,
-        //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
-        // Bottom Home Row
         // //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-        //     KC_TAB,    KC_S,    KC_N,     KC_T,     KC_C,    KC_B,              KC_DOT,    KC_H,    KC_E,     KC_A,    KC_I,    KC_ENT,
+        //     KC_TAB,   HOME_S,  HOME_N,   HOME_T,   HOME_C,   KC_B,              KC_DOT,   HOME_H,  HOME_E,   HOME_A,   HOME_I,  KC_ENT,
         // //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-        //     KC_NO,    HOME_Z,  HOME_X,   HOME_K,   HOME_G,   KC_W,               KC_J,    HOME_L,  HOME_SL,  HOME_QT, HOME_CM,LINE_SELECT,
+        //     KC_NO,     KC_Z,    KC_X,     KC_K,     KC_G,    KC_W,               KC_J,     KC_L,   KC_SLSH,  KC_QUOT, KC_COMM, LINE_SELECT,
         // //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
+        // Bottom Home Row
+        //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
+            KC_TAB,    KC_S,    KC_N,     KC_T,     KC_C,    KC_B,              KC_DOT,    KC_H,    KC_E,     KC_A,    KC_I,    KC_ENT,
+        //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
+            KC_NO,    HOME_Z,  HOME_X,   HOME_K,   HOME_G,   KC_W,               KC_J,    HOME_L,  HOME_SL,  HOME_QT, HOME_CM,LINE_SELECT,
+        //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //             ┌──────────┐┌────────────┬──────────┬──────────┐         ┌──────────┬──────────┬────────────┐┌───────────┐
                          KC_MUTE,   LSYM_BKSPC,   KC_SPC,   LARCANE,             RARCANE,  OS_SFT,   RSYM_BKSPC,   LSG(KC_S)        //snipping tool on press
         //             └──────────┘└────────────┴──────────┴──────────┘         └──────────┴──────────┴────────────┘└───────────┘
@@ -314,10 +314,10 @@ void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
         SMTD_MT(HOME_I, KC_I, KC_RIGHT_GUI)
 
     // Bottom Row
-        SMTD_MTE(HOME_G, KC_H, KC_RIGHT_CTRL)
-        SMTD_MTE(HOME_K, KC_E, KC_RSFT)
-        SMTD_MT(HOME_X, KC_A, KC_RIGHT_ALT)
-        SMTD_MT(HOME_Z, KC_I, KC_RIGHT_GUI)
+        SMTD_MTE(HOME_G, KC_G, KC_RIGHT_CTRL)
+        SMTD_MTE(HOME_K, KC_K, KC_RSFT)
+        SMTD_MT(HOME_X, KC_X, KC_RIGHT_ALT)
+        SMTD_MT(HOME_Z, KC_Z, KC_RIGHT_GUI)
 
         // Layer Tap
         SMTD_LT(LSYM_BKSPC, CTL_BSPC, 1)
@@ -331,10 +331,10 @@ void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
         SMTD_MT(HOME_S, KC_S, KC_LEFT_GUI)
 
     // Bottom Row
-        SMTD_MTE(HOME_L, KC_C, KC_LEFT_CTRL)
-        SMTD_MTE(HOME_SL, KC_T, KC_LSFT)
-        SMTD_MT(HOME_QT, KC_N, KC_LEFT_ALT)
-        SMTD_MT(HOME_CM, KC_S, KC_LEFT_GUI)
+        SMTD_MTE(HOME_L, KC_L, KC_LEFT_CTRL)
+        SMTD_MTE(HOME_SL, KC_SLSH, KC_LSFT)
+        SMTD_MT(HOME_QT, KC_QUOT, KC_LEFT_ALT)
+        SMTD_MT(HOME_CM, KC_COMM, KC_LEFT_GUI)
 
         // Layer Tap
         SMTD_LT(RSYM_BKSPC, CTL_BSPC, 2)
@@ -342,12 +342,33 @@ void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
 }
 
 uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
+    // Increase to get stuck on key presses less
     switch (keycode) {
         case HOME_I:
         case HOME_S:
         case HOME_Z:
         case HOME_CM:
-            if (timeout == SMTD_TIMEOUT_TAP) return 200;
+            if (timeout == SMTD_TIMEOUT_TAP) return 200; // 200 (Tapping term default)
+    }
+    // Decrease to stop false hold interpretations
+    switch (keycode) {
+        case HOME_I:
+        case HOME_S:
+        case HOME_C:
+        case HOME_H:
+        case HOME_T:
+        case HOME_E:
+        case HOME_N:
+        case HOME_A:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 5; // 200/4 (50 default)
+        // case HOME_Z:
+        // case HOME_CM:
+        //     if (timeout == SMTD_TIMEOUT_RELEASE) return ; // 200/4 (50 default)
+    }
+    // Increase to give yourself more time for a tap sequence
+    switch (keycode) {
+
+            if (timeout == SMTD_TIMEOUT_SEQUENCE) return 100; // 200/2 (100 default)
     }
 
     return get_smtd_timeout_default(timeout);
@@ -516,8 +537,8 @@ static void process_right_magic(uint16_t keycode, uint8_t mods) {
     switch (keycode) {
                 // Universal
         case  KC_B: { MAGIC_STRING("ecause",         KC_F23); } break;
-        case KC_D: { MAGIC_STRING("r",         KC_F23); } break;
-        case  KC_F: { MAGIC_STRING("",         KC_F23); } break;
+        case KC_D: { MAGIC_STRING("t",         KC_F23); } break;
+        case  KC_F: { MAGIC_STRING("or",         KC_F23); } break;
         case  KC_J: { MAGIC_STRING("j",         KC_F23); } break;
         case  KC_M: { MAGIC_STRING("m",         KC_F23); } break;
         case  KC_O: { MAGIC_STRING("o",         KC_F23); } break;
