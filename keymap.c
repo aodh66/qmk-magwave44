@@ -349,13 +349,13 @@ void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
 
 uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
     // Increase to get stuck on key presses less
-    switch (keycode) {
-        // case HOME_I:
-        // case HOME_S:
-        // case HOME_Z:
-        // case HOME_CM:
-            if (timeout == SMTD_TIMEOUT_TAP) return 200; // 200 (Tapping term default)
-    }
+    // switch (keycode) {
+    //     // case HOME_I:
+    //     // case HOME_S:
+    //     // case HOME_Z:
+    //     // case HOME_CM:
+    //         if (timeout == SMTD_TIMEOUT_TAP) return 200; // 200 (Tapping term default)
+    // }
 
     // Decrease to stop false hold interpretations
     switch (keycode) {
@@ -378,7 +378,7 @@ uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
         // case HOME_SL:
         // case HOME_QT:
         // case HOME_CM:
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 5; // 200/4 (50 default)
+            // if (timeout == SMTD_TIMEOUT_RELEASE) return 5; // 200/4 (50 default)
 
         // case HOME_Z:
         // case HOME_CM:
@@ -551,6 +551,39 @@ static void process_left_magic(uint16_t keycode, uint8_t mods) {
         case HOME_CM: { MAGIC_STRING(" and ",    KC_F21); } break;
     }
 }
+
+// static void process_left_magic(uint16_t keycode, uint8_t mods) { // LMAGIC definitions
+//     switch (keycode) {
+//         case HRL_A: { MAGIC_STRING("a",         KC_SPC); } break;
+//         case  KC_B: { MAGIC_STRING("ecause",    KC_NO); } break;
+//         case  KC_C: { MAGIC_STRING("an",        KC_NO); } break;
+//       //case HRL_D: { MAGIC_STRING("d",         KC_NO); } break;
+//         case HRM_E: { MAGIC_STRING("e",         KC_NO); } break;
+//       //case  KC_F: { MAGIC_STRING("f",         KC_NO); } break;
+//         case  KC_G: { MAGIC_STRING("eneral",    KC_NO); } break;
+//         case HRM_H: { MAGIC_STRING("h",         KC_NO); } break;
+//         case HRM_I: { MAGIC_STRING("i",         KC_NO); } break;
+//         case  KC_J: { MAGIC_STRING("ust",       KC_NO); } break;
+//       //case  KC_K: { MAGIC_STRING("k",         KC_NO); } break;
+//       //case HRM_L: { MAGIC_STRING("l",         KC_NO); } break;
+//         case  KC_M: { MAGIC_STRING("ent",       KC_NO); } break;
+//         case  KC_N: { MAGIC_STRING("ion",       KC_NO); } break;
+//         case  KC_O: { MAGIC_STRING("o",         KC_NO); } break;
+//         case  KC_P: { MAGIC_STRING("retty",     KC_NO); } break;
+//         case  KC_Q: { MAGIC_STRING("q",         KC_NO); } break;
+//       //case HRM_R: { MAGIC_STRING("r",         KC_NO); } break;
+//       //case HRM_S: { MAGIC_STRING("s",         KC_NO); } break;
+//         case  KC_T: { MAGIC_STRING("t",         KC_NO); } break;
+//         case  KC_U: { MAGIC_STRING("u",         KC_NO); } break;
+//         case HRM_V: { MAGIC_STRING("azjorfia",  KC_NO); } break;
+//         case  KC_W: { MAGIC_STRING("hich",      KC_NO); } break;
+//         case HRM_X: { MAGIC_STRING("x",         KC_NO); } break;
+//         case  KC_Y: { MAGIC_STRING("y",         KC_NO); } break;
+//         case  KC_Z: { MAGIC_STRING("z",         KC_NO); } break;
+ 
+//         case KC_COMM: { MAGIC_STRING(" and",    KC_NO); } break;
+//     }
+// }
  
  // RMAGIC definitions
 static void process_right_magic(uint16_t keycode, uint8_t mods) {
@@ -656,11 +689,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     switch (keycode) {
             // * Macros
             // ! New Arcane Keys Empressabyss
-        case LARCANE: { 
+        case LARCANE: 
+            if (record->event.pressed) { 
+            
             process_left_magic(get_last_keycode(), get_last_mods()); 
+        //    const ret_keycode = process_left_magic(get_last_keycode(), get_last_mods()); 
+        //    set_last_keycode(ret_keycode);
             } 
             return false;
-        case RARCANE: { 
+        case RARCANE: 
+            if (record->event.pressed) { 
             process_right_magic(get_last_keycode(), get_last_mods()); 
             } 
             return false;
