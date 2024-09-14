@@ -5,37 +5,37 @@
 
 #include QMK_KEYBOARD_H
 // ? Achordion
-// #include "features/achordion.h"
+#include "features/achordion.h"
 
 // * -----------------------------
 // * -- Home row mods (Recurva) --
 // * -----------------------------
-#define CTL_BSPC LCTL(KC_BSPC)
+// ? Achordion
 // Left-hand
     // Default Home Row
-// #define HOME_S LGUI_T(KC_S)
-// #define HOME_N LALT_T(KC_N)
-// #define HOME_T LSFT_T(KC_T)
-// #define HOME_C LCTL_T(KC_C)
+#define HOME_S LGUI_T(KC_S)
+#define HOME_N LALT_T(KC_N)
+#define HOME_T LSFT_T(KC_T)
+#define HOME_C LCTL_T(KC_C)
 
     // Bottom Home Row
-// #define HOME_Z LGUI_T(KC_Z)
-// #define HOME_X LALT_T(KC_X)
-// #define HOME_K LSFT_T(KC_K)
-// #define HOME_G LCTL_T(KC_G)
+#define HOME_Z LGUI_T(KC_Z)
+#define HOME_X LALT_T(KC_X)
+#define HOME_K LSFT_T(KC_K)
+#define HOME_G LCTL_T(KC_G)
 
 // Right-hand
     // Default Home Row
-// #define HOME_H RCTL_T(KC_H)
-// #define HOME_E RSFT_T(KC_E)
-// #define HOME_A LALT_T(KC_A)
-// #define HOME_I RGUI_T(KC_I)
+#define HOME_H RCTL_T(KC_H)
+#define HOME_E RSFT_T(KC_E)
+#define HOME_A LALT_T(KC_A)
+#define HOME_I RGUI_T(KC_I)
 
     // Bottom Home Row
-// #define HOME_L RCTL_T(KC_L)
-// #define HOME_SL RSFT_T(KC_SLSH)
-// #define HOME_QT LALT_T(KC_QUOT)
-// #define HOME_CM RGUI_T(KC_COMM)
+#define HOME_L RCTL_T(KC_L)
+#define HOME_SL RSFT_T(KC_SLSH)
+#define HOME_QT LALT_T(KC_QUOT)
+#define HOME_CM RGUI_T(KC_COMM)
 
 // Layers
 #define UNDO LCTL(KC_Z)
@@ -51,6 +51,7 @@
 
 #define ALT_F4 LALT(KC_F4)
 #define OS_SFT OSM(MOD_LSFT)
+#define CTL_BSPC LCTL(KC_BSPC)
 
 // * ------------------------
 // * -- Macro Declarations --
@@ -63,30 +64,30 @@ enum custom_keycodes {
     RESIZE,
     LARCANE,
     RARCANE,
-    MAGIC,
+    // MAGIC,
     // ONE_SHOT_SHIFT,
 
     // SM-Tap Dance Home Row Mods
     SMTD_KEYCODES_BEGIN,
     // Default Home Row
-    HOME_H,
-    HOME_E,
-    HOME_A,
-    HOME_I,
-    HOME_S,
-    HOME_N,
-    HOME_T,
-    HOME_C,
+    // HOME_H,
+    // HOME_E,
+    // HOME_A,
+    // HOME_I,
+    // HOME_S,
+    // HOME_N,
+    // HOME_T,
+    // HOME_C,
 
     // Bottom Home Row
-    HOME_Z,
-    HOME_X,
-    HOME_K,
-    HOME_G,
-    HOME_L,
-    HOME_SL,
-    HOME_QT,
-    HOME_CM,
+    // HOME_Z,
+    // HOME_X,
+    // HOME_K,
+    // HOME_G,
+    // HOME_L,
+    // HOME_SL,
+    // HOME_QT,
+    // HOME_CM,
 
     // Layers
     LSYM_BKSPC,
@@ -121,11 +122,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
             KC_TAB,    KC_S,    KC_N,     KC_T,     KC_C,    KC_B,              KC_DOT,    KC_H,    KC_E,     KC_A,    KC_I,    KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_NO,    HOME_Z,  HOME_X,   HOME_K,   HOME_G,   KC_W,               KC_J,    HOME_L,  HOME_SL,  HOME_QT, HOME_CM,LINE_SELECT,
+            QK_BOOT,    HOME_Z,  HOME_X,   HOME_K,   HOME_G,   KC_W,               KC_J,    HOME_L,  HOME_SL,  HOME_QT, HOME_CM,LINE_SELECT,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
+        // SM_Tap Dance Layer Taps
         //             ┌──────────┐┌────────────┬──────────┬──────────┐         ┌──────────┬──────────┬────────────┐┌───────────┐
                          KC_MUTE,   LSYM_BKSPC,   KC_SPC,   LARCANE,             RARCANE,  OS_SFT,   RSYM_BKSPC,   LSG(KC_S)        //snipping tool on press
         //             └──────────┘└────────────┴──────────┴──────────┘         └──────────┴──────────┴────────────┘└───────────┘
+        // Default/Achordion Layer Taps // ! Only sends BKSPC, not CTRL_BKSPC
+        // //             ┌──────────┐┌────────────┬──────────┬──────────┐         ┌──────────┬──────────┬────────────┐┌───────────┐
+        //                  KC_MUTE,   LT(1, LCTL(KC_BSPC)),   KC_SPC,   LARCANE,             RARCANE,  OS_SFT,   LT(2, LCTL(KC_BSPC)),   LSG(KC_S)        //snipping tool on press
+        // //             └──────────┘└────────────┴──────────┴──────────┘         └──────────┴──────────┴────────────┘└───────────┘
         ),
 
     // * Nav/Ext
@@ -166,7 +172,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_LCTL,  KC_NO,    KC_NO,   KC_BSPC,  KC_DEL,  KC_MPLY,            KC_PLUS,  KC_1,     KC_2,     KC_3,    KC_SLSH, KC_BSLS,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //              ┌──────────┐┌─────────┬──────────┬────────────┐         ┌──────────┬───────────┬─────────┐┌───────────┐
-                          KC_TRNS,    KC_NO,    KC_NO,      KC_NO,               KC_NO,     KC_NO,    KC_TRNS,     TO(0)      //moba
+                          KC_TRNS,   KC_TRNS,   KC_NO,      KC_NO,               KC_NO,     KC_NO,    KC_TRNS,     TO(0)      //moba
         //              └──────────┘└─────────┴──────────┴────────────┘         └──────────┴───────────┴─────────┘└───────────┘
         ),
 
@@ -283,23 +289,23 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 // * ------------------
 // * -- Tapping Term --
 // * ------------------
-// uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
-//   switch (keycode) {
-//     // Increase the tapping term a little for slower ring and pinky fingers.
-//     case HOME_S:
-//     case HOME_N:
-//     case HOME_A:
-//     case HOME_I:
-//     case HOME_Z:
-//     case HOME_X:
-//     case HOME_QT:
-//     case HOME_CM:
-//       return TAPPING_TERM + 15;
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
+  switch (keycode) {
+    // Increase the tapping term a little for slower ring and pinky fingers.
+    case HOME_S:
+    case HOME_N:
+    case HOME_A:
+    case HOME_I:
+    case HOME_Z:
+    case HOME_X:
+    case HOME_QT:
+    case HOME_CM:
+      return TAPPING_TERM + 15;
 
-//     default:
-//       return TAPPING_TERM;
-//   }
-// }
+    default:
+      return TAPPING_TERM;
+  }
+}
 
 // * ------------------
 // * -- SM-Tap Dance --
@@ -307,34 +313,34 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
     switch (keycode) {
 // Left-hand
-    // Default Home Row
-        SMTD_MTE(HOME_H, KC_H, KC_RIGHT_CTRL)
-        SMTD_MTE(HOME_E, KC_E, KC_RSFT)
-        SMTD_MT(HOME_A, KC_A, KC_RIGHT_ALT)
-        SMTD_MT(HOME_I, KC_I, KC_RIGHT_GUI)
+    // // Default Home Row
+    //     SMTD_MTE(HOME_H, KC_H, KC_RIGHT_CTRL)
+    //     SMTD_MTE(HOME_E, KC_E, KC_RSFT)
+    //     SMTD_MT(HOME_A, KC_A, KC_RIGHT_ALT)
+    //     SMTD_MT(HOME_I, KC_I, KC_RIGHT_GUI)
 
     // Bottom Row
-        SMTD_MTE(HOME_G, KC_G, KC_RIGHT_CTRL)
-        SMTD_MTE(HOME_K, KC_K, KC_RSFT)
-        SMTD_MT(HOME_X, KC_X, KC_RIGHT_ALT)
-        SMTD_MT(HOME_Z, KC_Z, KC_RIGHT_GUI)
+        // SMTD_MTE(HOME_G, KC_G, KC_RIGHT_CTRL)
+        // SMTD_MTE(HOME_K, KC_K, KC_RSFT)
+        // SMTD_MT(HOME_X, KC_X, KC_RIGHT_ALT)
+        // SMTD_MT(HOME_Z, KC_Z, KC_RIGHT_GUI)
 
         // Layer Tap
         SMTD_LT(LSYM_BKSPC, CTL_BSPC, 1)
 
 
 // Right-hand
-    // Default Home Row
-        SMTD_MTE(HOME_C, KC_C, KC_LEFT_CTRL)
-        SMTD_MTE(HOME_T, KC_T, KC_LSFT)
-        SMTD_MT(HOME_N, KC_N, KC_LEFT_ALT)
-        SMTD_MT(HOME_S, KC_S, KC_LEFT_GUI)
+    // // Default Home Row
+    //     SMTD_MTE(HOME_C, KC_C, KC_LEFT_CTRL)
+    //     SMTD_MTE(HOME_T, KC_T, KC_LSFT)
+    //     SMTD_MT(HOME_N, KC_N, KC_LEFT_ALT)
+    //     SMTD_MT(HOME_S, KC_S, KC_LEFT_GUI)
 
     // Bottom Row
-        SMTD_MTE(HOME_L, KC_L, KC_LEFT_CTRL)
-        SMTD_MTE(HOME_SL, KC_SLSH, KC_LSFT)
-        SMTD_MT(HOME_QT, KC_QUOT, KC_LEFT_ALT)
-        SMTD_MT(HOME_CM, KC_COMM, KC_LEFT_GUI)
+        // SMTD_MTE(HOME_L, KC_L, KC_LEFT_CTRL)
+        // SMTD_MTE(HOME_SL, KC_SLSH, KC_LSFT)
+        // SMTD_MT(HOME_QT, KC_QUOT, KC_LEFT_ALT)
+        // SMTD_MT(HOME_CM, KC_COMM, KC_LEFT_GUI)
 
         // Layer Tap
         SMTD_LT(RSYM_BKSPC, CTL_BSPC, 2)
@@ -344,32 +350,46 @@ void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
 uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
     // Increase to get stuck on key presses less
     switch (keycode) {
-        case HOME_I:
-        case HOME_S:
-        case HOME_Z:
-        case HOME_CM:
-            if (timeout == SMTD_TIMEOUT_TAP) return 200; // 200 (Tapping term default)
-    }
-    // Decrease to stop false hold interpretations
-    switch (keycode) {
-        case HOME_I:
-        case HOME_S:
-        case HOME_C:
-        case HOME_H:
-        case HOME_T:
-        case HOME_E:
-        case HOME_N:
-        case HOME_A:
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 5; // 200/4 (50 default)
+        // case HOME_I:
+        // case HOME_S:
         // case HOME_Z:
         // case HOME_CM:
-        //     if (timeout == SMTD_TIMEOUT_RELEASE) return ; // 200/4 (50 default)
+            if (timeout == SMTD_TIMEOUT_TAP) return 200; // 200 (Tapping term default)
+    }
+
+    // Decrease to stop false hold interpretations
+    switch (keycode) {
+        // case HOME_I:
+        // case HOME_S:
+        // case HOME_C:
+        // case HOME_H:
+        // case HOME_T:
+        // case HOME_E:
+        // case HOME_N:
+        // case HOME_A:
+        // case HOME_G:
+        // case HOME_L:
+
+        // case HOME_Z:
+        // case HOME_X:
+        // case HOME_K:
+        // case HOME_G:
+        // case HOME_L:
+        // case HOME_SL:
+        // case HOME_QT:
+        // case HOME_CM:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 5; // 200/4 (50 default)
+
+        // case HOME_Z:
+        // case HOME_CM:
+        case LSYM_BKSPC:
+        case RSYM_BKSPC:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 50; // 200/4 (50 default)
     }
     // Increase to give yourself more time for a tap sequence
-    switch (keycode) {
-
-            if (timeout == SMTD_TIMEOUT_SEQUENCE) return 100; // 200/2 (100 default)
-    }
+    // switch (keycode) {
+    //         if (timeout == SMTD_TIMEOUT_SEQUENCE) return 100; // 200/2 (100 default)
+    // }
 
     return get_smtd_timeout_default(timeout);
 }
@@ -378,43 +398,43 @@ uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
 // * -- Accordion --
 // * ---------------
 // ? Achordion
-// bool achordion_eager_mod(uint8_t mod) {
-//     switch (mod) {
-//         case MOD_LSFT:
-//         case MOD_RSFT:
-//         case MOD_LCTL:
-//         case MOD_RCTL:
-//             return true; // Eagerly apply Shift and Ctrl mods.
+bool achordion_eager_mod(uint8_t mod) {
+    switch (mod) {
+        case MOD_LSFT:
+        case MOD_RSFT:
+        case MOD_LCTL:
+        case MOD_RCTL:
+            return true; // Eagerly apply Shift and Ctrl mods.
 
-//         default:
-//             return false;
-//     }
-// }
+        default:
+            return false;
+    }
+}
 
-// // bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
-// //                      uint16_t other_keycode, keyrecord_t* other_record) {
-// //     // Otherwise, follow the opposite hands rule.
-// //     return achordion_opposite_hands(tap_hold_record, other_record);
-// // }
+bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
+                     uint16_t other_keycode, keyrecord_t* other_record) {
+    // Otherwise, follow the opposite hands rule.
+    return achordion_opposite_hands(tap_hold_record, other_record);
+}
 
-// uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
-//     return 800; // Use a timeout of 800 ms.
-// }
+uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
+    return 800; // Use a timeout of 800 ms.
+}
 
-// // Typing Streak
-// uint16_t achordion_streak_timeout(uint16_t tap_hold_keycode) {
-//     if (IS_QK_LAYER_TAP(tap_hold_keycode)) {
-//         return 0; // Disable streak detection on layer-tap keys.
-//     }
+// Typing Streak
+uint16_t achordion_streak_timeout(uint16_t tap_hold_keycode) {
+    if (IS_QK_LAYER_TAP(tap_hold_keycode)) {
+        return 0; // Disable streak detection on layer-tap keys.
+    }
 
-//     // Otherwise, tap_hold_keycode is a mod-tap key.
-//     uint8_t mod = mod_config(QK_MOD_TAP_GET_MODS(tap_hold_keycode));
-//     if ((mod & MOD_LSFT) != 0) {
-//     return 0;  // Disable for Shift mod-tap keys.
-//   } else {
-//     return 100;
-//   }
-// }
+    // Otherwise, tap_hold_keycode is a mod-tap key.
+    uint8_t mod = mod_config(QK_MOD_TAP_GET_MODS(tap_hold_keycode));
+    if ((mod & MOD_LSFT) != 0) {
+    return 0;  // Disable for Shift mod-tap keys.
+  } else {
+    return 100;
+  }
+}
 
 // * ----------------------------
 // * -- Magic/Alternate Repeat --
@@ -478,20 +498,20 @@ static void process_left_magic(uint16_t keycode, uint8_t mods) {
         case  KC_B: { MAGIC_STRING("b",    KC_F24); } break;
         case KC_D: { MAGIC_STRING("d",         KC_F24); } break;
         case  KC_F: { MAGIC_STRING("f",         KC_F24); } break;
-        case  KC_J: { MAGIC_STRING("u",       KC_F24); } break;
+        case  KC_J: { MAGIC_STRING("ust",       KC_F24); } break;
         case  KC_M: { MAGIC_STRING("ent",       KC_F24); } break;
         case  KC_O: { MAGIC_STRING("a",         KC_F24); } break;
         case  KC_P: { MAGIC_STRING("p",     KC_F24); } break;
         case  SS_QU: { MAGIC_STRING("estion",         KC_F24); } break;
         case KC_R: { MAGIC_STRING("r",         KC_F24); } break;
-        case  KC_U: { MAGIC_STRING("",         KC_F24); } break;
+        case  KC_U: { MAGIC_STRING("e",         KC_F24); } break;
         case KC_V: { MAGIC_STRING("v",  KC_F24); } break;
         case  KC_W: { MAGIC_STRING("w",      KC_F24); } break;
         case  KC_Y: { MAGIC_STRING("ou",         KC_F24); } break;
 
         case  KC_DOT: { MAGIC_STRING("./",         KC_F24); } break;
 
-        case  KC_SPC: { MAGIC_STRING("the ",     KC_NO); } break;
+        case  KC_SPC: { MAGIC_STRING("the ",     KC_F24); } break;
         case  KC_F21: { MAGIC_STRING("",     KC_SPC); } break;
 
         case  KC_F23: { MAGIC_STRING(" ",     KC_F21); } break;
@@ -544,13 +564,13 @@ static void process_right_magic(uint16_t keycode, uint8_t mods) {
         case  KC_O: { MAGIC_STRING("o",         KC_F23); } break;
         case  KC_P: { MAGIC_STRING("",         KC_F23); } break;
         case  SS_QU: { MAGIC_STRING("",      KC_F23); } break;
-        case KC_R: { MAGIC_STRING("d",         KC_F23); } break;
+        case KC_R: { MAGIC_STRING("n",         KC_F23); } break;
         case  KC_U: { MAGIC_STRING("u",         KC_F23); } break;
         case KC_V: { MAGIC_STRING("",         KC_F23); } break;
         case  KC_W: { MAGIC_STRING("hich",         KC_F23); } break;
         case  KC_Y: { MAGIC_STRING("y",       KC_F23); } break;
 
-        case  KC_SPC: { MAGIC_STRING("the ",     KC_NO); } break;
+        case  KC_SPC: { MAGIC_STRING("the ",     KC_F23); } break;
         case  KC_F22: { MAGIC_STRING("",     KC_SPC); } break;
 
         case  KC_F24: { MAGIC_STRING(" ",     KC_F22); } break;
@@ -564,9 +584,9 @@ static void process_right_magic(uint16_t keycode, uint8_t mods) {
         case HOME_I: { MAGIC_STRING("i",        KC_F23); } break;
         case  KC_K: { MAGIC_STRING("",         KC_F23); } break;
         case KC_L: { MAGIC_STRING("l",         KC_F23); } break;
-        case  HOME_N: { MAGIC_STRING("ing",         KC_F23); } break;
+        case  HOME_N: { MAGIC_STRING("",         KC_F23); } break;
         case HOME_S: { MAGIC_STRING("",         KC_F23); } break;
-        case  HOME_T: { MAGIC_STRING("",         KC_F23); } break;
+        case  HOME_T: { MAGIC_STRING("ion",         KC_F23); } break;
         case KC_X: { MAGIC_STRING("",        KC_F23); } break;
         case  KC_Z: { MAGIC_STRING("",         KC_F23); } break;
 
@@ -582,9 +602,9 @@ static void process_right_magic(uint16_t keycode, uint8_t mods) {
         case KC_I: { MAGIC_STRING("i",        KC_F23); } break;
         case  HOME_K: { MAGIC_STRING("",         KC_F23); } break;
         case HOME_L: { MAGIC_STRING("l",         KC_F23); } break;
-        case  KC_N: { MAGIC_STRING("ing",         KC_F23); } break;
+        case  KC_N: { MAGIC_STRING("",         KC_F23); } break;
         case KC_S: { MAGIC_STRING("",         KC_F23); } break;
-        case  KC_T: { MAGIC_STRING("",         KC_F23); } break;
+        case  KC_T: { MAGIC_STRING("ion",         KC_F23); } break;
         case HOME_X: { MAGIC_STRING("",        KC_F23); } break;
         case  HOME_Z: { MAGIC_STRING("",         KC_F23); } break;
 
@@ -625,9 +645,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     }
 
     // ? Achordion
-    // if (!process_achordion(keycode, record)) {
-    //     return false;
-    // }
+    if (!process_achordion(keycode, record)) {
+        return false;
+    }
 
     // ! Might be in wrong place
     const uint8_t mods         = get_mods();
@@ -715,6 +735,6 @@ case RESIZE:
 };
 
 // ? Achordion
-// void matrix_scan_user(void) {
-//     achordion_task();
-// }
+void matrix_scan_user(void) {
+    achordion_task();
+}
