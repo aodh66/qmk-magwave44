@@ -533,7 +533,7 @@ static void process_left_magic(uint16_t keycode, uint8_t mods) {
         case HOME_X: { MAGIC_STRING("x",         KC_F24); } break;
         case  HOME_Z: { MAGIC_STRING("z",         KC_F24); } break;
 
-        case HOME_CM: { MAGIC_STRING(" and ",    KC_F21); } break;
+        case HOME_CM: { MAGIC_STRING(" and ",    KC_SPC); } break;
 
     // Default Home Row
         // case HOME_A: { MAGIC_STRING("nd",         KC_F24); } break;
@@ -610,8 +610,8 @@ static void process_right_magic(uint16_t keycode, uint8_t mods) {
         case HOME_X: { MAGIC_STRING("",        KC_F23); } break;
         case  HOME_Z: { MAGIC_STRING("",         KC_F23); } break;
 
-        case HOME_CM: { MAGIC_STRING(" but ",    KC_F22); } break;
-        case HOME_QT: { MAGIC_STRING("ll ",    KC_F22); } break;
+        case HOME_CM: { MAGIC_STRING(" but ",    KC_SPC); } break;
+        case HOME_QT: { MAGIC_STRING("ll ",    KC_SPC); } break;
     }
 }
 
