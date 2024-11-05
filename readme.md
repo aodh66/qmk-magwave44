@@ -16,6 +16,7 @@ Keymap.c would require compiling with QMK MSYS or another method, and be flashed
 Format: Previous Key Pressed > N-gram/Word Output  | Output if opposite Arcane key is pressed after
 
 ### Left Arcane Key
+```
 a > and         | Spc
 
 b > bb          | Spc
@@ -73,8 +74,10 @@ z > zz          | Spc
 , > ", but "    | "the"
 
 Spc > " the "   | Nothing
+```
 
 ## Right Arcane Key
+```
 a > aa          | Spc
 
 b > because     | Spc
@@ -142,3 +145,4 @@ z >             | Spc
 , > ", and "    | "the"
 
 Spc > " the "   | Nothing
+```
