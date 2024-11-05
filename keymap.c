@@ -2,7 +2,6 @@
  * Copyright 2024 @DreaM117er
  * Copyright 2024 QMK
  */
-//  test change
 
 #include QMK_KEYBOARD_H
 // ? Achordion
@@ -34,7 +33,7 @@
 
     // Bottom Home Row
 #define HOME_L RCTL_T(KC_L)
-#define HOME_SL RSFT_T(KC_SLSH)
+#define HOME_CN RSFT_T(KC_SCLN)
 #define HOME_QT LALT_T(KC_QUOT)
 #define HOME_CM RGUI_T(KC_COMM)
 
@@ -65,6 +64,7 @@ enum custom_keycodes {
     RESIZE,
     LARCANE,
     RARCANE,
+    EMAIL,
     // MAGIC,
     // ONE_SHOT_SHIFT,
 
@@ -111,83 +111,83 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // * Base (Recurva Colstag)
     [0] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_ESC,    KC_F,    KC_R,     KC_D,     KC_P,    KC_V,               SS_QU,    KC_M,    KC_U,     KC_O,    KC_Y,    KC_DEL,
+            KC_ESC,    KC_F,     KC_R,     KC_D,     KC_P,     KC_V,               SS_QU,    KC_M,     KC_U,     KC_O,     KC_Y,    KC_DEL,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         // Default Home Row
         // //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
         //     KC_TAB,   HOME_S,  HOME_N,   HOME_T,   HOME_C,   KC_B,              KC_DOT,   HOME_H,  HOME_E,   HOME_A,   HOME_I,  KC_ENT,
         // //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-        //     KC_NO,     KC_Z,    KC_X,     KC_K,     KC_G,    KC_W,               KC_J,     KC_L,   KC_SLSH,  KC_QUOT, KC_COMM, LINE_SELECT,
+        //     KC_NO,     KC_Z,    KC_X,     KC_K,     KC_G,    KC_W,               KC_J,     KC_L,   KC_SCLN,  KC_QUOT, KC_COMM, LINE_SELECT,
         // //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         // Bottom Home Row
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_TAB,    KC_S,    KC_N,     KC_T,     KC_C,    KC_B,              KC_DOT,    KC_H,    KC_E,     KC_A,    KC_I,    KC_ENT,
+            KC_TAB,    KC_S,     KC_N,     KC_T,     KC_C,     KC_B,              KC_DOT,    KC_H,     KC_E,     KC_A,     KC_I,    KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            QK_BOOT,    HOME_Z,  HOME_X,   HOME_K,   HOME_G,   KC_W,               KC_J,    HOME_L,  HOME_SL,  HOME_QT, HOME_CM,LINE_SELECT,
+             MO(4),   HOME_Z,   HOME_X,   HOME_K,   HOME_G,    KC_W,               KC_J,    HOME_L,   HOME_CN,  HOME_QT,  HOME_CM, LINE_SELECT,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         // SM_Tap Dance Layer Taps
-        //             ┌──────────┐┌────────────┬──────────┬──────────┐         ┌──────────┬──────────┬────────────┐┌───────────┐
-                         KC_MUTE,   LSYM_BKSPC,   KC_SPC,   LARCANE,             RARCANE,  OS_SFT,   RSYM_BKSPC,   LSG(KC_S)        //snipping tool on press
-        //             └──────────┘└────────────┴──────────┴──────────┘         └──────────┴──────────┴────────────┘└───────────┘
-        // Default/Achordion Layer Taps // ! Only sends BKSPC, not CTRL_BKSPC
         // //             ┌──────────┐┌────────────┬──────────┬──────────┐         ┌──────────┬──────────┬────────────┐┌───────────┐
-        //                  KC_MUTE,   LT(1, LCTL(KC_BSPC)),   KC_SPC,   LARCANE,             RARCANE,  OS_SFT,   LT(2, LCTL(KC_BSPC)),   LSG(KC_S)        //snipping tool on press
+        //                  KC_MUTE,   LSYM_BKSPC,   KC_SPC,   LARCANE,             RARCANE,     OS_SFT,   RSYM_BKSPC,   LSG(KC_S)        //snipping tool on press
         // //             └──────────┘└────────────┴──────────┴──────────┘         └──────────┴──────────┴────────────┘└───────────┘
+        // Default Layer Taps
+        //             ┌──────────┐┌────────────┬──────────┬──────────┐         ┌──────────┬──────────┬────────────┐┌───────────┐
+                         KC_MUTE,       MO(1),     KC_SPC,   LARCANE,             RARCANE,    OS_SFT,      MO(2),     LSG(KC_S)        //snipping tool on press
+        //             └──────────┘└────────────┴──────────┴──────────┘         └──────────┴──────────┴────────────┘└───────────┘
         ),
 
     // * Nav/Ext
     [1] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_ESC,   ALT_F4,  KC_TAB,   KC_MEH,  KC_HYPR,  KC_CAPS,            KC_PGUP, KC_HOME,  BRACES,   KC_END,  KC_BSPC,  KC_DEL,
+            KC_ESC,   KC_ESC,  KC_TAB,   KC_MEH,  KC_HYPR,  KC_CAPS,              KC_PGUP,  KC_HOME,  BRACES,   KC_END,   KC_BSPC,  KC_DEL,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_NO,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL, RESIZE,             KC_PGDN, KC_LEFT,  KC_DOWN,  KC_UP,   KC_RGHT,  KC_ENT,
+            KC_TAB,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  RESIZE,             KC_PGDN,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_NO,     UNDO,     CUT,     COPY,    PASTE,    FIND,              KC_DEL,  NXT_TAB,  PRE_TAB,  NXT_WIN, PRE_WIN, LINE_COPY,
+            MO(4),     UNDO,     CUT,      COPY,     PASTE,   ALT_F4,             KC_DEL,   KC_BSPC,  KC_TAB,   KC_NO,     KC_NO,  LINE_COPY,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //              ┌──────────┐┌─────────┬──────────┬────────────┐         ┌──────────┬───────────┬─────────┐┌───────────┐
-                          KC_TRNS,   KC_TRNS,   KC_NO,      KC_NO,                MO(4),   CW_TOGG,    MO(3),      TO(0)       //moba
+                          KC_TRNS,    KC_TRNS,   KC_NO,      KC_NO,                 MO(4),    CW_TOGG,    MO(3),      TO(0)       //moba
         //              └──────────┘└─────────┴──────────┴────────────┘         └──────────┴───────────┴─────────┘└───────────┘
         ),
 
     // * Symbol
     [2] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_ESC,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,  KC_PERC,            KC_CIRC, KC_AMPR,  KC_ASTR,  KC_UNDS, KC_PIPE,  KC_DEL,
+            KC_ESC,   KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_UNDS,  KC_PIPE,  KC_DEL,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_TAB,  KC_GRV,   KC_LT,    KC_LCBR, KC_LPRN,  KC_LBRC,            KC_EQL,  KC_RCTL,  KC_RSFT,  KC_RALT, KC_RGUI,  KC_ENT,
+            KC_TAB,   KC_GRV,   KC_LT,    KC_LCBR,  KC_LPRN,  KC_LBRC,            KC_EQL,   KC_RCTL,  KC_RSFT,  KC_RALT,  KC_RGUI,  KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_LCTL, KC_TILD,  KC_GT,    KC_RCBR, KC_RPRN,  KC_RBRC,            KC_PLUS, KC_MINS,  KC_COLN,  KC_SCLN, KC_BSLS, LINE_SELECT,
+            KC_LCTL,  KC_TILD,  KC_GT,    KC_RCBR,  KC_RPRN,  KC_RBRC,            KC_PLUS,  KC_MINS,  KC_QUES,  KC_BSLS,  KC_SLSH,  KC_NO,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //              ┌──────────┐┌─────────┬──────────┬────────────┐         ┌──────────┬───────────┬─────────┐┌───────────┐
-                          KC_TRNS,    MO(3),    KC_ENT,    KC_BSPC,              KC_NO,      KC_NO,   KC_TRNS,     TO(0)
+                          KC_TRNS,    MO(3),    KC_ENT,   LCTL(KC_BSPC),           KC_NO,      KC_NO,    KC_TRNS,     TO(0)
         //              └──────────┘└─────────┴──────────┴────────────┘         └──────────┴───────────┴─────────┘└───────────┘
         ),
 
     // * Numpad
     [3] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_ESC,   KC_NO,    KC_NO,   QK_BOOT,  KC_NO,   KC_VOLU,            KC_MINS,  KC_7,     KC_8,     KC_9,    KC_ASTR, KC_SLSH,
+            KC_ESC,    KC_NO,    KC_NO,   QK_BOOT,  KC_NO,   KC_VOLU,             KC_MINS,   KC_7,     KC_8,     KC_9,    KC_ASTR,  KC_SLSH,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_TAB,  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL, KC_VOLD,            KC_DOT,   KC_4,     KC_5,     KC_6,    KC_0,    KC_ENT,
+            KC_TAB,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL, KC_VOLD,             KC_DOT,    KC_4,     KC_5,     KC_6,    KC_0,     KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_LCTL,  KC_NO,    KC_NO,   KC_BSPC,  KC_DEL,  KC_MPLY,            KC_PLUS,  KC_1,     KC_2,     KC_3,    KC_SLSH, KC_BSLS,
+            KC_LCTL,   EMAIL,    KC_NO,   KC_BSPC,  KC_DEL,  KC_MPLY,             KC_PLUS,   KC_1,     KC_2,     KC_3,    KC_SLSH,  KC_BSLS,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //              ┌──────────┐┌─────────┬──────────┬────────────┐         ┌──────────┬───────────┬─────────┐┌───────────┐
-                          KC_TRNS,   KC_TRNS,   KC_NO,      KC_NO,               KC_NO,     KC_NO,    KC_TRNS,     TO(0)      //moba
+                          KC_TRNS,    KC_TRNS,   KC_NO,      KC_NO,                KC_NO,      KC_NO,    KC_TRNS,     TO(0)      //moba
         //              └──────────┘└─────────┴──────────┴────────────┘         └──────────┴───────────┴─────────┘└───────────┘
         ),
 
     // * Function
     [4] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_NO,    ALT_F4,   KC_NO,   QK_BOOT,  KC_NO,   KC_VOLU,            KC_NO,    KC_F7,    KC_F8,    KC_F9,   KC_NO,    KC_NO,
+            KC_NO,    ALT_F4,   KC_NO,    QK_BOOT,   KC_NO,   KC_VOLU,            KC_NO,     KC_F7,    KC_F8,    KC_F9,   KC_NO,    KC_NO,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_NO,   KC_LGUI,  KC_LALT,  KC_LSFT, KC_LCTL,  KC_VOLD,            KC_F12,   KC_F4,    KC_F5,    KC_F6,   KC_F10,   KC_NO,
+            KC_NO,    KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  KC_VOLD,            KC_F12,    KC_F4,    KC_F5,    KC_F6,   KC_F10,   KC_NO,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_NO,    KC_NO,    KC_NO,   KC_NO,   KC_MPLY,   KC_NO,             KC_F11,   KC_F1,    KC_F2,    KC_F3,   KC_NO,    TO(4),
+            KC_NO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,   KC_MPLY,            KC_F11,    KC_F1,    KC_F2,    KC_F3,   KC_NO,    TO(4),
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //              ┌──────────┐┌─────────┬──────────┬────────────┐         ┌──────────┬───────────┬─────────┐┌───────────┐
-                          KC_TRNS,    KC_NO,    ALT_F4,      KC_NO,               KC_TRNS,    KC_NO,    KC_NO,     TO(0)
+                          KC_TRNS,    KC_NO,    ALT_F4,      KC_NO,               KC_TRNS,     KC_NO,     KC_NO,      TO(0)
         //              └──────────┘└─────────┴──────────┴────────────┘         └──────────┴───────────┴─────────┘└───────────┘
         )
 
@@ -240,13 +240,13 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
             //Encoder 1
             ENCODER_CCW_CW(KC_VOLD, KC_VOLU),
             //Encoder 2
-            ENCODER_CCW_CW(LCTL(KC_TAB), RCS(KC_TAB))
+            ENCODER_CCW_CW(KC_MS_WH_DOWN, KC_MS_WH_UP)
             },
     [1] =   {
             //Encoder 1
             ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
             //Encoder 2
-            ENCODER_CCW_CW(LALT(KC_TAB), LSA(KC_TAB))
+            ENCODER_CCW_CW(KC_TRNS, KC_TRNS)
             },
     [2] =   {
             //Encoder 1
@@ -258,7 +258,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
             //Encoder 1
             ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
             //Encoder 2
-            ENCODER_CCW_CW(KC_MS_WH_DOWN, KC_MS_WH_UP)
+            ENCODER_CCW_CW(KC_TRNS, KC_TRNS)
             },
     [4] =   {
             //Encoder 1
@@ -522,9 +522,9 @@ static void process_left_magic(uint16_t keycode, uint8_t mods) {
     // Bottom Home Row
         case KC_A: { MAGIC_STRING("nd",         KC_F24); } break;
         case  KC_C: { MAGIC_STRING("c",        KC_F24); } break;
-        case KC_E: { MAGIC_STRING("",         KC_F24); } break;
+        case KC_E: { MAGIC_STRING("nce",         KC_F24); } break;
         case  HOME_G: { MAGIC_STRING("g",    KC_F24); } break;
-        case KC_H: { MAGIC_STRING("",         KC_F24); } break;
+        case KC_H: { MAGIC_STRING("ave",         KC_F24); } break;
         case KC_I: { MAGIC_STRING("ng",         KC_F24); } break;
         case  HOME_K: { MAGIC_STRING("k",         KC_F24); } break;
         case HOME_L: { MAGIC_STRING("",         KC_F24); } break;
@@ -534,7 +534,8 @@ static void process_left_magic(uint16_t keycode, uint8_t mods) {
         case HOME_X: { MAGIC_STRING("x",         KC_F24); } break;
         case  HOME_Z: { MAGIC_STRING("z",         KC_F24); } break;
 
-        case HOME_CM: { MAGIC_STRING(" and ",    KC_SPC); } break;
+        // case HOME_CM: { MAGIC_STRING(" and ",    KC_SPC); } break;
+        case HOME_CM: { MAGIC_STRING(" but ",    KC_SPC); } break;
 
     // Default Home Row
         // case HOME_A: { MAGIC_STRING("nd",         KC_F24); } break;
@@ -561,15 +562,15 @@ static void process_right_magic(uint16_t keycode, uint8_t mods) {
                 // Universal
         case  KC_B: { MAGIC_STRING("ecause",         KC_F23); } break;
         case KC_D: { MAGIC_STRING("t",         KC_F23); } break;
-        case  KC_F: { MAGIC_STRING("or",         KC_F23); } break;
+        case  KC_F: { MAGIC_STRING("rom",         KC_F23); } break;
         case  KC_J: { MAGIC_STRING("j",         KC_F23); } break;
         case  KC_M: { MAGIC_STRING("m",         KC_F23); } break;
         case  KC_O: { MAGIC_STRING("o",         KC_F23); } break;
-        case  KC_P: { MAGIC_STRING("",         KC_F23); } break;
+        case  KC_P: { MAGIC_STRING("eople",         KC_F23); } break;
         case  SS_QU: { MAGIC_STRING("",      KC_F23); } break;
         case KC_R: { MAGIC_STRING("n",         KC_F23); } break;
         case  KC_U: { MAGIC_STRING("u",         KC_F23); } break;
-        case KC_V: { MAGIC_STRING("",         KC_F23); } break;
+        case KC_V: { MAGIC_STRING("ery",         KC_F23); } break;
         case  KC_W: { MAGIC_STRING("hich",         KC_F23); } break;
         case  KC_Y: { MAGIC_STRING("y",       KC_F23); } break;
 
@@ -578,41 +579,42 @@ static void process_right_magic(uint16_t keycode, uint8_t mods) {
 
         case  KC_F24: { MAGIC_STRING(" ",     KC_SPC); } break;
 
-        // Default Home Row
-        case HOME_A: { MAGIC_STRING("a",        KC_F23); } break;
-        case  HOME_C: { MAGIC_STRING("",         KC_F23); } break;
-        case HOME_E: { MAGIC_STRING("e",         KC_F23); } break;
-        case  KC_G: { MAGIC_STRING("",         KC_F23); } break;
-        case HOME_H: { MAGIC_STRING("h",         KC_F23); } break;
-        case HOME_I: { MAGIC_STRING("i",        KC_F23); } break;
-        case  KC_K: { MAGIC_STRING("",         KC_F23); } break;
-        case KC_L: { MAGIC_STRING("l",         KC_F23); } break;
-        case  HOME_N: { MAGIC_STRING("",         KC_F23); } break;
-        case HOME_S: { MAGIC_STRING("",         KC_F23); } break;
-        case  HOME_T: { MAGIC_STRING("ion",         KC_F23); } break;
-        case KC_X: { MAGIC_STRING("",        KC_F23); } break;
-        case  KC_Z: { MAGIC_STRING("",         KC_F23); } break;
-
-        case KC_COMM: { MAGIC_STRING(" but ",    KC_F22); } break;
-        case KC_QUOT: { MAGIC_STRING("ll ",    KC_F22); } break;
-
         // Bottom Home Row
         case KC_A: { MAGIC_STRING("a",        KC_F23); } break;
-        case  KC_C: { MAGIC_STRING("",         KC_F23); } break;
+        case  KC_C: { MAGIC_STRING("comp",         KC_F23); } break;
         case KC_E: { MAGIC_STRING("e",         KC_F23); } break;
-        case  HOME_G: { MAGIC_STRING("",         KC_F23); } break;
+        case  HOME_G: { MAGIC_STRING("eneral",         KC_F23); } break;
         case KC_H: { MAGIC_STRING("h",         KC_F23); } break;
         case KC_I: { MAGIC_STRING("i",        KC_F23); } break;
-        case  HOME_K: { MAGIC_STRING("",         KC_F23); } break;
+        case  HOME_K: { MAGIC_STRING("eyboard",         KC_F23); } break;
         case HOME_L: { MAGIC_STRING("l",         KC_F23); } break;
-        case  KC_N: { MAGIC_STRING("",         KC_F23); } break;
-        case KC_S: { MAGIC_STRING("",         KC_F23); } break;
+        case  KC_N: { MAGIC_STRING("'t",         KC_F23); } break;
+        case KC_S: { MAGIC_STRING("ion",         KC_F23); } break;
         case  KC_T: { MAGIC_STRING("ion",         KC_F23); } break;
         case HOME_X: { MAGIC_STRING("",        KC_F23); } break;
         case  HOME_Z: { MAGIC_STRING("",         KC_F23); } break;
 
-        case HOME_CM: { MAGIC_STRING(" but ",    KC_SPC); } break;
+        // case HOME_CM: { MAGIC_STRING(" but ",    KC_SPC); } break;
+        case HOME_CM: { MAGIC_STRING(" and ",    KC_SPC); } break;
         case HOME_QT: { MAGIC_STRING("ll ",    KC_SPC); } break;
+
+        // Default Home Row
+        // case HOME_A: { MAGIC_STRING("a",        KC_F23); } break;
+        // case  HOME_C: { MAGIC_STRING("",         KC_F23); } break;
+        // case HOME_E: { MAGIC_STRING("e",         KC_F23); } break;
+        // case  KC_G: { MAGIC_STRING("",         KC_F23); } break;
+        // case HOME_H: { MAGIC_STRING("h",         KC_F23); } break;
+        // case HOME_I: { MAGIC_STRING("i",        KC_F23); } break;
+        // case  KC_K: { MAGIC_STRING("eyboard",         KC_F23); } break;
+        // case KC_L: { MAGIC_STRING("l",         KC_F23); } break;
+        // case  HOME_N: { MAGIC_STRING("",         KC_F23); } break;
+        // case HOME_S: { MAGIC_STRING("",         KC_F23); } break;
+        // case  HOME_T: { MAGIC_STRING("ion",         KC_F23); } break;
+        // case KC_X: { MAGIC_STRING("",        KC_F23); } break;
+        // case  KC_Z: { MAGIC_STRING("",         KC_F23); } break;
+
+        // case KC_COMM: { MAGIC_STRING(" but ",    KC_F22); } break;
+        // case KC_QUOT: { MAGIC_STRING("ll ",    KC_F22); } break;
     }
 }
 
@@ -687,6 +689,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         case SS_QU:
             if (record->event.pressed) {
                 SEND_STRING("qu");
+            }
+            break;
+
+        case EMAIL:
+            if (record->event.pressed) {
+                SEND_STRING("aodhan66@gmail.com");
             }
             break;
 
