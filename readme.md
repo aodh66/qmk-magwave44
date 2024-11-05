@@ -4,7 +4,7 @@ Keymap.c would require compiling with QMK MSYS or another method, and be flashed
 ## Alpha Layout - Recurva (Colstag)
 [Recurva Breakdown](https://github.com/GalileoBlues/Recurva?tab=readme-ov-file#variations)
 
-![picture of the recurva letter layout](https://github.com/aodh66/qmk-sweep/blob/main/images/Recurva.png?raw=true)
+![picture of the recurva letter layout](https://github.com/aodh66/qmk-magwave44/blob/main/images/Recurva.png)
 
 ## Overall Layout
 
