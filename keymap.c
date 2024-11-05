@@ -65,6 +65,7 @@ enum custom_keycodes {
     LARCANE,
     RARCANE,
     EMAIL,
+    COMMENT,
     // MAGIC,
     // ONE_SHOT_SHIFT,
 
@@ -142,7 +143,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             KC_TAB,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  RESIZE,             KC_PGDN,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            MO(4),     UNDO,     CUT,      COPY,     PASTE,   ALT_F4,             KC_DEL,   KC_BSPC,  KC_TAB,   KC_NO,     KC_NO,  LINE_COPY,
+            MO(4),     UNDO,     CUT,      COPY,     PASTE,   ALT_F4,             KC_DEL,   KC_BSPC,  KC_TAB,   KC_NO,    COMMENT, LINE_COPY,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //              ┌──────────┐┌─────────┬──────────┬────────────┐         ┌──────────┬───────────┬─────────┐┌───────────┐
                           KC_TRNS,    KC_TRNS,   KC_NO,      KC_NO,                 MO(4),    CW_TOGG,    MO(3),      TO(0)       //moba
@@ -574,6 +575,10 @@ static void process_right_magic(uint16_t keycode, uint8_t mods) {
         case  KC_W: { MAGIC_STRING("hich",         KC_F23); } break;
         case  KC_Y: { MAGIC_STRING("y",       KC_F23); } break;
 
+        case  KC_QUES: { MAGIC_STRING("?",       KC_F23); } break;
+        case  KC_SLSH: { MAGIC_STRING("/",       KC_F23); } break;
+        case  KC_DOT: { MAGIC_STRING(".",         KC_NO); } break;
+
         case  KC_SPC: { MAGIC_STRING("the ",     KC_NO); } break;
         // case  KC_F22: { MAGIC_STRING("",     KC_SPC); } break;
 
@@ -581,20 +586,22 @@ static void process_right_magic(uint16_t keycode, uint8_t mods) {
 
         // Bottom Home Row
         case KC_A: { MAGIC_STRING("a",        KC_F23); } break;
-        case  KC_C: { MAGIC_STRING("comp",         KC_F23); } break;
+        case  KC_C: { MAGIC_STRING("omp",         KC_F23); } break;
         case KC_E: { MAGIC_STRING("e",         KC_F23); } break;
         case  HOME_G: { MAGIC_STRING("eneral",         KC_F23); } break;
         case KC_H: { MAGIC_STRING("h",         KC_F23); } break;
         case KC_I: { MAGIC_STRING("i",        KC_F23); } break;
         case  HOME_K: { MAGIC_STRING("eyboard",         KC_F23); } break;
         case HOME_L: { MAGIC_STRING("l",         KC_F23); } break;
-        case  KC_N: { MAGIC_STRING("'t",         KC_F23); } break;
+        case  KC_N: { MAGIC_STRING("'t ",         KC_SPC); } break;
         case KC_S: { MAGIC_STRING("ion",         KC_F23); } break;
         case  KC_T: { MAGIC_STRING("ion",         KC_F23); } break;
         case HOME_X: { MAGIC_STRING("",        KC_F23); } break;
         case  HOME_Z: { MAGIC_STRING("",         KC_F23); } break;
 
         // case HOME_CM: { MAGIC_STRING(" but ",    KC_SPC); } break;
+        case HOME_CN: { MAGIC_STRING(";",    KC_SPC); } break;
+        // case KC_COLN: { MAGIC_STRING(":",    KC_SPC); } break;
         case HOME_CM: { MAGIC_STRING(" and ",    KC_SPC); } break;
         case HOME_QT: { MAGIC_STRING("ll ",    KC_SPC); } break;
 
@@ -695,6 +702,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         case EMAIL:
             if (record->event.pressed) {
                 SEND_STRING("aodhan66@gmail.com");
+            }
+            break;
+
+        case COMMENT:
+            if (record->event.pressed) {
+                clear_oneshot_mods(); // Temporarily disable mods.
+                register_code(KC_LCTL);// Hold Ctrl.
+                tap_code(KC_SLSH);   // Hit slash to comment out text.
+                unregister_code(KC_LCTL); // Stops holding Ctrl.
             }
             break;
 
