@@ -8,7 +8,7 @@ Keymap.c would require compiling with QMK MSYS or another method, and be flashed
 
 ## Overall Layout
 
-![alt text](https://github.com/aodh66/qmk-sweep/blob/main/images/my_keymap.svg)
+![picture of my magwave keymap layers](https://github.com/aodh66/qmk-magwave44/blob/main/images/my_keymap.svg)
 
 // Insert thought process on key locations here
 
