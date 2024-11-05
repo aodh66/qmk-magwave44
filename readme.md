@@ -8,7 +8,7 @@ Keymap.c would require compiling with QMK MSYS or another method, and be flashed
 
 ## Overall Layout
 
-<!-- ![alt text](https://github.com/aodh66/qmk-sweep/blob/main/images/my_keymap.svg?raw=true) -->
+![alt text](https://github.com/aodh66/qmk-sweep/blob/main/images/my_keymap.svg)
 
 // Insert thought process on key locations here
 
@@ -43,8 +43,8 @@ w > ww          | Spc
 x > xx          | Spc
 y > you         | Spc
 z > zz          | Spc
-. > ../          | Spc
-, > ", but "    | "the"
+. > ../         | Spc
+, > ", but"    | Spc
 Spc > " the "   | Nothing
 ```
 
@@ -63,7 +63,7 @@ j > jj          | Spc
 k > keyboard    | Spc
 l > ll          | Spc
 m > mm          | Spc
-n > n't         | "the"
+n > n't         | Spc
 o > oo          | Spc
 p > people      | Spc
 QU >            | Spc NOTE: I do not use a standard Q key, I have a QU key and Q on a combo.
@@ -80,8 +80,7 @@ z >             | Spc
 ? > ??          | Spc
 / > //          | Spc
 ; > ;;          | Spc
-: > ::          | Spc
-' > "'ll "      | "the"
-, > ", and "    | "the"
+' > "'ll"      | Spc
+, > ", and"    | Spc
 Spc > " the "   | Nothing
 ```

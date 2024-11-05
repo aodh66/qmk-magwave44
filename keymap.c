@@ -513,7 +513,7 @@ static void process_left_magic(uint16_t keycode, uint8_t mods) {
         case  KC_W: { MAGIC_STRING("w",      KC_F24); } break;
         case  KC_Y: { MAGIC_STRING("ou",         KC_F24); } break;
 
-        case  KC_DOT: { MAGIC_STRING("./",         KC_NO); } break;
+        case  KC_DOT: { MAGIC_STRING("./",         KC_F24); } break;
 
         case  KC_SPC: { MAGIC_STRING("the ",     KC_NO); } break;
         // case  KC_F21: { MAGIC_STRING("",     KC_SPC); } break;
@@ -536,7 +536,7 @@ static void process_left_magic(uint16_t keycode, uint8_t mods) {
         case  HOME_Z: { MAGIC_STRING("z",         KC_F24); } break;
 
         // case HOME_CM: { MAGIC_STRING(" and ",    KC_SPC); } break;
-        case HOME_CM: { MAGIC_STRING(" but ",    KC_SPC); } break;
+        case HOME_CM: { MAGIC_STRING(" but",    KC_F24); } break;
 
     // Default Home Row
         // case HOME_A: { MAGIC_STRING("nd",         KC_F24); } break;
@@ -593,17 +593,17 @@ static void process_right_magic(uint16_t keycode, uint8_t mods) {
         case KC_I: { MAGIC_STRING("i",        KC_F23); } break;
         case  HOME_K: { MAGIC_STRING("eyboard",         KC_F23); } break;
         case HOME_L: { MAGIC_STRING("l",         KC_F23); } break;
-        case  KC_N: { MAGIC_STRING("'t ",         KC_SPC); } break;
+        case  KC_N: { MAGIC_STRING("'t",         KC_F23); } break;
         case KC_S: { MAGIC_STRING("ion",         KC_F23); } break;
         case  KC_T: { MAGIC_STRING("ion",         KC_F23); } break;
         case HOME_X: { MAGIC_STRING("",        KC_F23); } break;
         case  HOME_Z: { MAGIC_STRING("",         KC_F23); } break;
 
         // case HOME_CM: { MAGIC_STRING(" but ",    KC_SPC); } break;
-        case HOME_CN: { MAGIC_STRING(";",    KC_SPC); } break;
+        case HOME_CN: { MAGIC_STRING(";",    KC_F23); } break;
         // case KC_COLN: { MAGIC_STRING(":",    KC_SPC); } break;
-        case HOME_CM: { MAGIC_STRING(" and ",    KC_SPC); } break;
-        case HOME_QT: { MAGIC_STRING("ll ",    KC_SPC); } break;
+        case HOME_CM: { MAGIC_STRING(" and",    KC_F23); } break;
+        case HOME_QT: { MAGIC_STRING("ll",    KC_F23); } break;
 
         // Default Home Row
         // case HOME_A: { MAGIC_STRING("a",        KC_F23); } break;

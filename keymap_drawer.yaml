@@ -1,0 +1,178 @@
+layout: {qmk_keyboard: splitkb/aurora/corne/rev1, qmk_layout: LAYOUT_split_3x6_3}
+layers:
+  ALPHA: [ESC, F, R, D, P, V, SS QU, M, U, O, Y, DEL, TAB, S, N, T, C, B, ., H, E, A, I, ENT, L4, {h: GUI, t: Z}, {h: Alt, t: X}, {h: Shift, t: K}, {h: Ctrl, t: G}, W, J, {h: Ctrl, t: L}, {h: Shift, t: ';'}, {h: Alt, t: "'"}, {h: GUI, t: ','}, LINE SELECT, L1, SPC, LARCANE, RARCANE, OS SFT, L2]
+  NAV:
+  - ESC
+  - ESC
+  - TAB
+  - MEH
+  - HYPR
+  - CAPS
+  - PGUP
+  - HOME
+  - BRACES
+  - END
+  - BSPC
+  - DEL
+  - TAB
+  - LGUI
+  - LALT
+  - LSFT
+  - LCTL
+  - RESIZE
+  - PGDN
+  - LEFT
+  - DOWN
+  - UP
+  - RGHT
+  - ENT
+  - L4
+  - UNDO
+  - CUT
+  - COPY
+  - PASTE
+  - ALT F4
+  - DEL
+  - BSPC
+  - TAB
+  - ''
+  - COMMENT
+  - LINE COPY
+  - {type: held}
+  - ''
+  - ''
+  - L4
+  - CW TOGG
+  - L3
+  SYM:
+  - ESC
+  - '!'
+  - '@'
+  - '#'
+  - $
+  - '%'
+  - ^
+  - '&'
+  - '*'
+  - _
+  - '|'
+  - DEL
+  - TAB
+  - '`'
+  - <
+  - '{'
+  - (
+  - '['
+  - '='
+  - RCTL
+  - RSFT
+  - RALT
+  - RGUI
+  - ENT
+  - LCTL
+  - '~'
+  - '>'
+  - '}'
+  - )
+  - ']'
+  - +
+  - '-'
+  - '?'
+  - \
+  - /
+  - ''
+  - L3
+  - ENT
+  - Ctl+ BSPC
+  - ''
+  - ''
+  - {type: held}
+  NUM:
+  - ESC
+  - ''
+  - ''
+  - QK BOOT
+  - ''
+  - VOLU
+  - '-'
+  - '7'
+  - '8'
+  - '9'
+  - '*'
+  - /
+  - TAB
+  - LGUI
+  - LALT
+  - LSFT
+  - LCTL
+  - VOLD
+  - .
+  - '4'
+  - '5'
+  - '6'
+  - '0'
+  - ENT
+  - LCTL
+  - EMAIL
+  - ''
+  - BSPC
+  - DEL
+  - MPLY
+  - +
+  - '1'
+  - '2'
+  - '3'
+  - /
+  - \
+  - {type: held}
+  - ''
+  - ''
+  - ''
+  - ''
+  - {type: held}
+  FUNCTION:
+  - ''
+  - ALT F4
+  - ''
+  - QK BOOT
+  - ''
+  - VOLU
+  - ''
+  - F7
+  - F8
+  - F9
+  - ''
+  - ''
+  - ''
+  - LGUI
+  - LALT
+  - LSFT
+  - LCTL
+  - VOLD
+  - F12
+  - F4
+  - F5
+  - F6
+  - F10
+  - ''
+  - {type: held}
+  - ''
+  - ''
+  - ''
+  - ''
+  - MPLY
+  - F11
+  - F1
+  - F2
+  - F3
+  - ''
+  - {t: L4, h: toggle}
+  - ''
+  - ALT F4
+  - ''
+  - {t: ▽, type: trans}
+  - ''
+  - ''
+combos:
+  - {p: [6, 7], k: "Q", l: ["ALPHA"], a: top,  arc_scale: 0.9}
+  - {p: [6, 8], k: "Q", l: ["ALPHA"],  a: top,  offset: 0.6}
