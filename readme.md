@@ -44,7 +44,7 @@ x > xx          | Spc
 y > you         | Spc
 z > zz          | Spc
 . > ../         | Spc
-, > ", but"    | Spc
+, > ", but"     | Spc
 Spc > " the "   | Nothing
 ```
 
@@ -80,7 +80,7 @@ z >             | Spc
 ? > ??          | Spc
 / > //          | Spc
 ; > ;;          | Spc
-' > "'ll"      | Spc
-, > ", and"    | Spc
+' > "'ll"       | Spc
+, > ", and"     | Spc
 Spc > " the "   | Nothing
 ```
