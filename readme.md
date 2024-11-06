@@ -28,7 +28,7 @@ h > have        | Spc
 i > ing         | Spc
 j > just        | Spc
 k > kk          | Spc
-l >             | Spc
+l > lmao        | Spc
 m > ment        | Spc
 n > nn          | Spc
 o > oa          | Spc
@@ -44,7 +44,7 @@ x > xx          | Spc
 y > you         | Spc
 z > zz          | Spc
 . > ../         | Spc
-, > ", but"     | Spc
+, > ", but "    | "the"
 Spc > " the "   | Nothing
 ```
 
@@ -66,7 +66,7 @@ m > mm          | Spc
 n > n't         | Spc
 o > oo          | Spc
 p > people      | Spc
-QU >            | Spc NOTE: I do not use a standard Q key, I have a QU key and Q on a combo.
+QU > q          | Spc NOTE: I do not use a standard Q key, I have a QU key and Q on a combo.
 r > rn          | Spc
 s > sion        | Spc
 t > tion        | Spc
@@ -81,6 +81,6 @@ z >             | Spc
 / > //          | Spc
 ; > ;;          | Spc
 ' > "'ll"       | Spc
-, > ", and"     | Spc
+, > ", and "    | "the"
 Spc > " the "   | Nothing
 ```
