@@ -92,7 +92,7 @@ enum custom_keycodes {
     // HOME_CM,
 
 // Layers
-    LSYM_BKSPC,
+    LNAV_BKSPC,
     RSYM_BKSPC,
     SMTD_KEYCODES_END,
 };
@@ -138,13 +138,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              MO(_FN),   HOME_Z,   HOME_X,   HOME_K,   HOME_G,    KC_W,               KC_J,    HOME_L,   HOME_CN,  HOME_QT,  HOME_CM, LINE_SELECT,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         // SM_Tap Dance Layer Taps
-        // //             ┌──────────┐┌────────────┬──────────┬──────────┐         ┌──────────┬──────────┬────────────┐┌───────────┐
-        //                  KC_MUTE,   LSYM_BKSPC,   KC_SPC,   LARCANE,             RARCANE,     OS_SFT,   RSYM_BKSPC,   LSG(KC_S)        //snipping tool on press
-        // //             └──────────┘└────────────┴──────────┴──────────┘         └──────────┴──────────┴────────────┘└───────────┘
-        // Default Layer Taps
         //             ┌──────────┐┌────────────┬──────────┬──────────┐         ┌──────────┬──────────┬────────────┐┌───────────┐
-                         KC_MUTE,       MO(_NAV),     KC_SPC,   LARCANE,             RARCANE,    OS_SFT,      MO(_SYM),     TO(_AKL)        //snipping tool on press
+                         KC_MUTE,   LNAV_BKSPC,   KC_SPC,   LARCANE,             RARCANE,     OS_SFT,   RSYM_BKSPC,   TO(_AKL)
         //             └──────────┘└────────────┴──────────┴──────────┘         └──────────┴──────────┴────────────┘└───────────┘
+        // Default Layer Taps
+        // //             ┌──────────┐┌────────────┬──────────┬──────────┐         ┌──────────┬──────────┬────────────┐┌───────────┐
+        //                  KC_MUTE,       MO(_NAV),     KC_SPC,   LARCANE,             RARCANE,    OS_SFT,      MO(_SYM),     TO(_AKL)
+        // //             └──────────┘└────────────┴──────────┴──────────┘         └──────────┴──────────┴────────────┘└───────────┘
         ),
 
     // * Test Gallium Practice Layer
@@ -159,13 +159,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              MO(_FN),   KC_X,   SS_QU,   KC_M,   KC_W,    KC_Z,               KC_K,    KC_F,   KC_QUOT,  KC_SCLN,  KC_DOT, LINE_SELECT,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         // SM_Tap Dance Layer Taps
-        // //             ┌──────────┐┌────────────┬──────────┬──────────┐         ┌──────────┬──────────┬────────────┐┌───────────┐
-        //                  KC_MUTE,   LSYM_BKSPC,   KC_SPC,   LARCANE,             RARCANE,     OS_SFT,   RSYM_BKSPC,   LSG(KC_S)        //snipping tool on press
-        // //             └──────────┘└────────────┴──────────┴──────────┘         └──────────┴──────────┴────────────┘└───────────┘
-        // Default Layer Taps
         //             ┌──────────┐┌────────────┬──────────┬──────────┐         ┌──────────┬──────────┬────────────┐┌───────────┐
-                         KC_MUTE,       MO(_NAV),     KC_SPC,   LARCANE,             RARCANE,    OS_SFT,      MO(_SYM),     TO(_ALPHA)        //snipping tool on press
+                         KC_MUTE,   LNAV_BKSPC,   KC_SPC,   LARCANE,             RARCANE,     OS_SFT,   RSYM_BKSPC,   TO(_ALPHA)
         //             └──────────┘└────────────┴──────────┴──────────┘         └──────────┴──────────┴────────────┘└───────────┘
+        // Default Layer Taps
+        // //             ┌──────────┐┌────────────┬──────────┬──────────┐         ┌──────────┬──────────┬────────────┐┌───────────┐
+        //                  KC_MUTE,       MO(_NAV),     KC_SPC,   LARCANE,             RARCANE,    OS_SFT,      MO(_SYM),     TO(_ALPHA)
+        // //             └──────────┘└────────────┴──────────┴──────────┘         └──────────┴──────────┴────────────┘└───────────┘
         ),
 
     // * Nav/Ext
@@ -178,7 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             MO(_FN),     UNDO,     CUT,      COPY,     PASTE,   ALT_F4,             KC_DEL,   KC_BSPC,  KC_TAB,   KC_NO,    COMMENT, LINE_COPY,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //              ┌──────────┐┌─────────┬──────────┬────────────┐         ┌──────────┬───────────┬─────────┐┌───────────┐
-                          KC_TRNS,    KC_TRNS,   KC_NO,      KC_NO,                 MO(_FN),    CW_TOGG,    MO(_NUM),      TO(_ALPHA)       //moba
+                          KC_TRNS,    KC_TRNS,   KC_NO,      KC_NO,                 MO(_FN),    CW_TOGG,    MO(_NUM),      TO(_ALPHA)
         //              └──────────┘└─────────┴──────────┴────────────┘         └──────────┴───────────┴─────────┘└───────────┘
         ),
 
@@ -310,7 +310,7 @@ void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
         // SMTD_MT(HOME_Z, KC_Z, KC_RIGHT_GUI)
 
     // Layer Tap
-        SMTD_LT(LSYM_BKSPC, CTL_BSPC, _NAV)
+        SMTD_LT(LNAV_BKSPC, CTL_BSPC, _NAV)
 
 
 // Right-hand
@@ -368,9 +368,9 @@ uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
         // case HOME_Z:
         // case HOME_CM:
 // used
-        case LSYM_BKSPC:
+        case LNAV_BKSPC:
         case RSYM_BKSPC:
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 50; // 200/4 (50 default)
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 25; // 200/4 (50 default)
     }
 // Increase to give yourself more time for a tap sequence
     // switch (keycode) {
