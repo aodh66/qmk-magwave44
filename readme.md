@@ -44,7 +44,7 @@ x > xx          | Spc
 y > you         | Spc
 z > zz          | Spc
 . > ../         | Spc
-, > ", but "    | "the"
+DISABLED || , > ", but "    | "the"
 Spc > " the "   | Nothing
 ```
 
@@ -81,6 +81,6 @@ z >             | Spc
 / > //          | Spc
 ; > ;;          | Spc
 ' > "'ll"       | Spc
-, > ", and "    | "the"
+DISABLED || , > ", and "    | "the"
 Spc > " the "   | Nothing
 ```

@@ -1,6 +1,6 @@
 layout: {qmk_keyboard: splitkb/aurora/corne/rev1, qmk_layout: LAYOUT_split_3x6_3}
 layers:
-  ALPHA: [ESC, F, R, D, P, V, SS QU, M, U, O, Y, DEL, TAB, S, N, T, C, B, ., H, E, A, I, ENT, L4, {h: GUI, t: Z}, {h: Alt, t: X}, {h: Shift, t: K}, {h: Ctrl, t: G}, W, J, {h: Ctrl, t: L}, {h: Shift, t: ';'}, {h: Alt, t: "'"}, {h: GUI, t: ','}, LINE SELECT, L1, SPC, LARCANE, RARCANE, OS SFT, L2]
+  ALPHA: [ESC, F, R, D, P, V, SS QU, M, U, O, Y, DEL, TAB, S, N, T, C, B, ., H, E, A, I, ENT, FN, {h: GUI, t: Z}, {h: Alt, t: X}, {h: Shift, t: K}, {h: Ctrl, t: G}, W, J, {h: Ctrl, t: L}, {h: Shift, t: ';'}, {h: Alt, t: "'"}, {h: GUI, t: ','}, LINE SELECT, NAV, SPC, LARCANE, RARCANE, OS SFT, SYM]
   NAV:
   - ESC
   - ESC
@@ -26,7 +26,7 @@ layers:
   - UP
   - RGHT
   - ENT
-  - L4
+  - FN
   - UNDO
   - CUT
   - COPY
@@ -41,9 +41,9 @@ layers:
   - {type: held}
   - ''
   - ''
-  - L4
+  - FN
   - CW TOGG
-  - L3
+  - NUM
   SYM:
   - ESC
   - '!'
@@ -81,7 +81,7 @@ layers:
   - \
   - /
   - ''
-  - L3
+  - NUM
   - ENT
   - Ctl+ BSPC
   - ''
@@ -130,7 +130,7 @@ layers:
   - ''
   - ''
   - {type: held}
-  FUNCTION:
+  FN:
   - ''
   - ALT F4
   - ''
@@ -166,7 +166,7 @@ layers:
   - F2
   - F3
   - ''
-  - {t: L4, h: toggle}
+  - {t: FN, h: toggle}
   - ''
   - ALT F4
   - ''
@@ -174,5 +174,6 @@ layers:
   - ''
   - ''
 combos:
-  - {p: [6, 7], k: "Q", l: ["ALPHA"], a: top,  arc_scale: 0.9}
-  - {p: [6, 8], k: "Q", l: ["ALPHA"],  a: top,  offset: 0.6}
+  # - {p: [6, 7], k: "Q", l: ["ALPHA"], a: top,  arc_scale: 0.9}
+  - {p: [6, 7], k: "Q", l: ["ALPHA"]}
+  - {p: [6, 8], k: "Q", l: ["ALPHA"],  a: top,  offset: 0.3}

@@ -1,4 +1,4 @@
-<svg width="900" height="1757" viewBox="0 0 900 1757" class="keymap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="900" height="1740" viewBox="0 0 900 1740" class="keymap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <style>/* inherit to force styles through use tags */
 svg path {
     fill: inherit;
@@ -129,7 +129,7 @@ path.combo { stroke: #7f7f7f; }
 }</style>
 <g transform="translate(30, 0)" class="layer-ALPHA">
 <text x="0" y="28" class="label" id="ALPHA">ALPHA:</text>
-<g transform="translate(0, 104)">
+<g transform="translate(0, 87)">
 <g transform="translate(28, 49)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">ESC</text>
@@ -230,8 +230,9 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(28, 161)" class="key keypos-24">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">L4</text>
-</g>
+<a href="#FN">
+<text x="0" y="0" class="key tap layer-activator">FN</text>
+</a></g>
 <g transform="translate(84, 161)" class="key keypos-25">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">Z</text>
@@ -288,8 +289,9 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(224, 205)" class="key keypos-36">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">L1</text>
-</g>
+<a href="#NAV">
+<text x="0" y="0" class="key tap layer-activator">NAV</text>
+</a></g>
 <g transform="translate(286, 213) rotate(15.0)" class="key keypos-37">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">SPC</text>
@@ -310,23 +312,22 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(616, 205)" class="key keypos-41">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">L2</text>
-</g>
+<a href="#SYM">
+<text x="0" y="0" class="key tap layer-activator">SYM</text>
+</a></g>
 <g class="combo combopos-0">
-<path d="M560,6 h-19 a6.0,6.0 0 0 0 -6.0,6.0 v11" class="combo"/>
-<path d="M560,6 h19 a6.0,6.0 0 0 1 6.0,6.0 v4" class="combo"/>
-<rect rx="6" ry="6" x="546" y="-7" width="28" height="26" class="combo"/>
-<text x="560" y="6" class="combo tap">Q</text>
+<rect rx="6" ry="6" x="546" y="26" width="28" height="26" class="combo"/>
+<text x="560" y="38" class="combo tap">Q</text>
 </g>
 <g class="combo combopos-1">
-<path d="M588,-35 h-50 a6.0,6.0 0 0 0 -6.0,6.0 v52" class="combo"/>
-<path d="M588,-35 h50 a6.0,6.0 0 0 1 6.0,6.0 v38" class="combo"/>
-<rect rx="6" ry="6" x="574" y="-48" width="28" height="26" class="combo"/>
-<text x="588" y="-35" class="combo tap">Q</text>
+<path d="M588,-18 h-50 a6.0,6.0 0 0 0 -6.0,6.0 v35" class="combo"/>
+<path d="M588,-18 h50 a6.0,6.0 0 0 1 6.0,6.0 v21" class="combo"/>
+<rect rx="6" ry="6" x="574" y="-31" width="28" height="26" class="combo"/>
+<text x="588" y="-18" class="combo tap">Q</text>
 </g>
 </g>
 </g>
-<g transform="translate(30, 378)" class="layer-NAV">
+<g transform="translate(30, 361)" class="layer-NAV">
 <text x="0" y="28" class="label" id="NAV">NAV:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 49)" class="key keypos-0">
@@ -427,8 +428,9 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(28, 161)" class="key keypos-24">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">L4</text>
-</g>
+<a href="#FN">
+<text x="0" y="0" class="key tap layer-activator">FN</text>
+</a></g>
 <g transform="translate(84, 161)" class="key keypos-25">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">UNDO</text>
@@ -487,8 +489,9 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(489, 224) rotate(-30.0)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<text x="0" y="0" class="key tap">L4</text>
-</g>
+<a href="#FN">
+<text x="0" y="0" class="key tap layer-activator">FN</text>
+</a></g>
 <g transform="translate(554, 213) rotate(-15.0)" class="key keypos-40">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">
@@ -497,11 +500,12 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(616, 205)" class="key keypos-41">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">L3</text>
+<a href="#NUM">
+<text x="0" y="0" class="key tap layer-activator">NUM</text>
+</a></g>
 </g>
 </g>
-</g>
-<g transform="translate(30, 709)" class="layer-SYM">
+<g transform="translate(30, 692)" class="layer-SYM">
 <text x="0" y="28" class="label" id="SYM">SYM:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 49)" class="key keypos-0">
@@ -649,8 +653,9 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(224, 205)" class="key keypos-36">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">L3</text>
-</g>
+<a href="#NUM">
+<text x="0" y="0" class="key tap layer-activator">NUM</text>
+</a></g>
 <g transform="translate(286, 213) rotate(15.0)" class="key keypos-37">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">ENT</text>
@@ -672,7 +677,7 @@ path.combo { stroke: #7f7f7f; }
 </g>
 </g>
 </g>
-<g transform="translate(30, 1040)" class="layer-NUM">
+<g transform="translate(30, 1023)" class="layer-NUM">
 <text x="0" y="28" class="label" id="NUM">NUM:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 49)" class="key keypos-0">
@@ -837,8 +842,8 @@ path.combo { stroke: #7f7f7f; }
 </g>
 </g>
 </g>
-<g transform="translate(30, 1370)" class="layer-FUNCTION">
-<text x="0" y="28" class="label" id="FUNCTION">FUNCTION:</text>
+<g transform="translate(30, 1353)" class="layer-FN">
+<text x="0" y="28" class="label" id="FN">FN:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 49)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -972,8 +977,9 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(812, 161)" class="key keypos-35">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">L4</text>
-<text x="0" y="24" class="key hold">toggle</text>
+<a href="#FN">
+<text x="0" y="0" class="key tap layer-activator">FN</text>
+</a><text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g transform="translate(224, 205)" class="key keypos-36">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -999,4 +1005,4 @@ path.combo { stroke: #7f7f7f; }
 </g>
 </g>
 </g>
-<text x="870.0" y="1729.0" class="footer">Created with <a href="https://github.com/caksoylar/keymap-drawer">keymap-drawer</a></text></svg>
+<text x="870.0" y="1712.0" class="footer">Created with <a href="https://github.com/caksoylar/keymap-drawer">keymap-drawer</a></text></svg>
