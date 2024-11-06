@@ -4,6 +4,7 @@
  */
 
 #include QMK_KEYBOARD_H
+#include "env.h"
 // ? Achordion
 #include "features/achordion.h"
 
@@ -45,9 +46,6 @@
 #define FIND LCTL(KC_F)
 
 #define NXT_TAB LCTL(KC_TAB)
-#define PRE_TAB RCS(KC_TAB)
-#define NXT_WIN LALT(KC_TAB)
-#define PRE_WIN LCA(KC_TAB)
 
 #define ALT_F4 LALT(KC_F4)
 #define OS_SFT OSM(MOD_LSFT)
@@ -706,7 +704,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
         case EMAIL:
             if (record->event.pressed) {
-                SEND_STRING("aodhan66@gmail.com");
+                SEND_STRING(EMAIL_STRING);
             }
             break;
 
