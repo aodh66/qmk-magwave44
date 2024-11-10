@@ -173,7 +173,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             KC_TAB,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  RESIZE,             KC_PGDN,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_MS_WH_DOWN,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            MO(_FN),     UNDO,     CUT,      COPY,     PASTE,   KC_DEL,             KC_BSPC,   NXT_TAB,  KC_TAB,   KC_NO,    COMMENT, LINE_COPY,
+            MO(_FN),     UNDO,     CUT,      COPY,     PASTE,   KC_DEL,             KC_BSPC,   NXT_TAB,  KC_TAB,   KC_DEL,    COMMENT, LINE_COPY,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //              ┌──────────┐┌─────────┬──────────┬────────────┐         ┌──────────┬───────────┬─────────┐┌───────────┐
                           KC_TRNS,    KC_TRNS,   KC_NO,      KC_NO,                 MO(_FN),    CW_TOGG,    MO(_NUM),      TO(_ALPHA)
