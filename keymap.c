@@ -169,11 +169,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // * Nav/Ext
     [_NAV] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_ESC,   KC_ESC,  KC_TAB,   KC_MEH,  KC_HYPR,  KC_CAPS,              KC_PGUP,  KC_HOME,  BRACES,   KC_END,   KC_BSPC,  KC_DEL,
+            KC_ESC,   KC_ESC,  KC_CAPS,   KC_MEH,  KC_HYPR,  ALT_F4,              KC_PGUP,  KC_HOME,  BRACES,   KC_END,   KC_BSPC,  KC_DEL,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             KC_TAB,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  RESIZE,             KC_PGDN,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            MO(_FN),     UNDO,     CUT,      COPY,     PASTE,   ALT_F4,             KC_DEL,   KC_BSPC,  KC_TAB,   KC_NO,    COMMENT, LINE_COPY,
+            MO(_FN),     UNDO,     CUT,      COPY,     PASTE,   KC_DEL,             KC_BSPC,   NXT_TAB,  KC_TAB,   KC_NO,    COMMENT, LINE_COPY,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //              ┌──────────┐┌─────────┬──────────┬────────────┐         ┌──────────┬───────────┬─────────┐┌───────────┐
                           KC_TRNS,    KC_TRNS,   KC_NO,      KC_NO,                 MO(_FN),    CW_TOGG,    MO(_NUM),      TO(_ALPHA)
@@ -190,7 +190,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_LCTL,  KC_TILD,  KC_GT,    KC_RCBR,  KC_RPRN,  KC_RBRC,            KC_PLUS,  KC_MINS,  KC_QUES,  KC_BSLS,  KC_SLSH,  KC_NO,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //              ┌──────────┐┌─────────┬──────────┬────────────┐         ┌──────────┬───────────┬─────────┐┌───────────┐
-                          KC_TRNS,    MO(_NUM),    KC_ENT,   LCTL(KC_BSPC),           KC_NO,      KC_NO,    KC_TRNS,     TO(_ALPHA)
+                          KC_TRNS,    MO(_NUM),    KC_ENT,   KC_BSPC,           KC_NO,      KC_NO,    KC_TRNS,     TO(_ALPHA)
         //              └──────────┘└─────────┴──────────┴────────────┘         └──────────┴───────────┴─────────┘└───────────┘
         ),
 
@@ -368,7 +368,7 @@ uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
 // used
         case LNAV_BKSPC:
         case RSYM_BKSPC:
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 25; // 200/4 (50 default)
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 35; // 200/4 (50 default)
     }
 // Increase to give yourself more time for a tap sequence
     // switch (keycode) {
