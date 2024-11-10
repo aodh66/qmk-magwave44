@@ -169,9 +169,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // * Nav/Ext
     [_NAV] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_ESC,   KC_ESC,  KC_CAPS,   KC_MEH,  KC_HYPR,  ALT_F4,              KC_PGUP,  KC_HOME,  BRACES,   KC_END,   KC_BSPC,  KC_DEL,
+            KC_ESC,   KC_ESC,  KC_CAPS,   KC_MEH,  KC_HYPR,  ALT_F4,              KC_PGUP,  KC_HOME,  BRACES,   KC_END,   KC_BSPC,  KC_MS_WH_UP,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_TAB,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  RESIZE,             KC_PGDN,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_ENT,
+            KC_TAB,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  RESIZE,             KC_PGDN,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_MS_WH_DOWN,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             MO(_FN),     UNDO,     CUT,      COPY,     PASTE,   KC_DEL,             KC_BSPC,   NXT_TAB,  KC_TAB,   KC_NO,    COMMENT, LINE_COPY,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
