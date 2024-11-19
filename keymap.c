@@ -331,13 +331,15 @@ void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
 
 uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
 // Increase to get stuck on key presses less
-    // switch (keycode) {
+    switch (keycode) {
     //     // case HOME_I:
     //     // case HOME_S:
     //     // case HOME_Z:
     //     // case HOME_CM:
-    //         if (timeout == SMTD_TIMEOUT_TAP) return 200; // 200 (Tapping term default)
-    // }
+        case LNAV_BKSPC:
+        case RSYM_BKSPC:
+           if (timeout == SMTD_TIMEOUT_TAP) return 200; // 200 (Tapping term default)
+    }
 
 // Decrease to stop false hold interpretations
     switch (keycode) {
@@ -368,7 +370,7 @@ uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
 // used
         case LNAV_BKSPC:
         case RSYM_BKSPC:
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 35; // 200/4 (50 default)
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 40; // 200/4 (50 default)
     }
 // Increase to give yourself more time for a tap sequence
     // switch (keycode) {
