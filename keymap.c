@@ -121,7 +121,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // * Base (Recurva Colstag)
     [_ALPHA] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_ESC,    KC_F,     KC_R,     KC_D,     KC_P,     KC_V,               SS_QU,    KC_M,     KC_U,     KC_O,     KC_Y,    QK_BOOT,
+            KC_ESC,    KC_F,     KC_R,     KC_D,     KC_P,     KC_V,               SS_QU,    KC_M,     KC_U,     KC_O,     KC_Y,    KC_NO,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         // Default Home Row
         // //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
@@ -148,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // * Test Gallium Practice Layer
     [_AKL] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_ESC,    KC_B,     KC_L,     KC_D,     KC_C,     KC_V,               KC_J,     KC_Y,     KC_O,     KC_U,     KC_COMM,    QK_BOOT,
+            KC_ESC,    KC_B,     KC_L,     KC_D,     KC_C,     KC_V,               KC_J,     KC_Y,     KC_O,     KC_U,     KC_COMM,    KC_NO,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         // Bottom Home Row
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
@@ -363,13 +363,15 @@ uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
         // case HOME_CN:
         // case HOME_QT:
         // case HOME_CM:
-            // if (timeout == SMTD_TIMEOUT_RELEASE) return 5; // 200/4 (50 default)
+        case LNAV_BKSPC:
+        case RSYM_BKSPC:
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 25; // 200/4 (50 default)
 
         // case HOME_Z:
         // case HOME_CM:
 // used
-        case LNAV_BKSPC:
-        case RSYM_BKSPC:
+        // case LNAV_BKSPC:
+        // case RSYM_BKSPC:
             if (timeout == SMTD_TIMEOUT_RELEASE) return 40; // 200/4 (50 default)
     }
 // Increase to give yourself more time for a tap sequence
