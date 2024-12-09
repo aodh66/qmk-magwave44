@@ -197,7 +197,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // * Numpad
     [_NUM] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_ESC,    KC_NO,    KC_NO,   QK_BOOT,  KC_NO,   KC_VOLU,             KC_MINS,   KC_7,     KC_8,     KC_9,    KC_ASTR,  KC_SLSH,
+            KC_ESC,   MO(_FN),   KC_NO,   QK_BOOT,  KC_NO,   KC_VOLU,             KC_MINS,   KC_7,     KC_8,     KC_9,    KC_ASTR,  KC_SLSH,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             KC_TAB,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL, KC_VOLD,             KC_DOT,    KC_4,     KC_5,     KC_6,    KC_0,     KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
@@ -211,7 +211,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // * Function
     [_FN] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_NO,    ALT_F4,   KC_NO,    QK_BOOT,   KC_NO,   KC_VOLU,            KC_NO,     KC_F7,    KC_F8,    KC_F9,   KC_NO,    KC_NO,
+            KC_NO,     KC_NO,    KC_NO,   QK_BOOT,   KC_NO,   KC_VOLU,            KC_NO,     KC_F7,    KC_F8,    KC_F9,   KC_NO,    KC_NO,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             KC_NO,    KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  KC_VOLD,            KC_F12,    KC_F4,    KC_F5,    KC_F6,   KC_F10,   KC_NO,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
@@ -515,12 +515,12 @@ static void process_left_magic(uint16_t keycode, uint8_t mods) {
         case  KC_P: { MAGIC_STRING("p",     KC_F24); } break;
         case  SS_QU: { MAGIC_STRING("estion",         KC_F24); } break;
         case KC_R: { MAGIC_STRING("r",         KC_F24); } break;
-        case  KC_U: { MAGIC_STRING("e",         KC_F24); } break;
+        case  KC_U: { MAGIC_STRING("nder",         KC_F24); } break;
         case KC_V: { MAGIC_STRING("v",  KC_F24); } break;
         case  KC_W: { MAGIC_STRING("w",      KC_F24); } break;
         case  KC_Y: { MAGIC_STRING("ou",         KC_F24); } break;
 
-        case  KC_DOT: { MAGIC_STRING("./",         KC_F24); } break;
+        case  KC_DOT: { MAGIC_STRING(".",         KC_F24); } break;
 
         case  KC_SPC: { MAGIC_STRING("the ",     KC_NO); } break;
         // case  KC_F21: { MAGIC_STRING("",     KC_SPC); } break;
@@ -541,6 +541,7 @@ static void process_left_magic(uint16_t keycode, uint8_t mods) {
         case  KC_T: { MAGIC_STRING("t",         KC_F24); } break;
         case HOME_X: { MAGIC_STRING("x",         KC_F24); } break;
         case  HOME_Z: { MAGIC_STRING("z",         KC_F24); } break;
+        case HOME_QT: { MAGIC_STRING("ve",    KC_F24); } break;
 
         // case HOME_CM: { MAGIC_STRING(" and ",    KC_SPC); } break;
         // case HOME_CM: { MAGIC_STRING(" but ",    KC_SPC); } break;
@@ -569,7 +570,7 @@ static void process_right_magic(uint16_t keycode, uint8_t mods) {
     switch (keycode) {
                 // Universal
         case  KC_B: { MAGIC_STRING("ecause",         KC_F23); } break;
-        case KC_D: { MAGIC_STRING("t",         KC_F23); } break;
+        case KC_D: { MAGIC_STRING("ent",         KC_F23); } break;
         case  KC_F: { MAGIC_STRING("rom",         KC_F23); } break;
         case  KC_J: { MAGIC_STRING("j",         KC_F23); } break;
         case  KC_M: { MAGIC_STRING("m",         KC_F23); } break;

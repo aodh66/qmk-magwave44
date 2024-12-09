@@ -37,13 +37,14 @@ QU > question   | Spc NOTE: I do not use a standard Q key, I have a QU key and Q
 r > rr          | Spc
 s > ss          | Spc
 t > tt          | Spc
-u > ue          | Spc
+u > under       | Spc
 v > vv          | Spc
 w > ww          | Spc
 x > xx          | Spc
 y > you         | Spc
 z > zz          | Spc
-. > ../         | Spc
+. > ..          | Spc
+' > 've         | Spc
 DISABLED || , > ", but "    | "the"
 Spc > " the "   | Nothing
 ```
@@ -53,7 +54,7 @@ Spc > " the "   | Nothing
 a > aa          | Spc
 b > because     | Spc
 c > comp        | Spc
-d > dt          | Spc
+d > dent        | Spc
 e > ee          | Spc
 f > from        | Spc
 g > general     | Spc
@@ -80,7 +81,7 @@ z >             | Spc
 ? > ??          | Spc
 / > //          | Spc
 ; > ;;          | Spc
-' > "'ll"       | Spc
+' > 'll         | Spc
 DISABLED || , > ", and "    | "the"
 Spc > " the "   | Nothing
 ```
