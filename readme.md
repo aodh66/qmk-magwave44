@@ -43,7 +43,7 @@ w > ww          | Spc
 x > xx          | Spc
 y > you         | Spc
 z > zz          | Spc
-. > ..          | Spc
+. > ./          | Spc
 ' > 've         | Spc
 DISABLED || , > ", but "    | "the"
 Spc > " the "   | Nothing

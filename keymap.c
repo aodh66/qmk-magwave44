@@ -520,7 +520,7 @@ static void process_left_magic(uint16_t keycode, uint8_t mods) {
         case  KC_W: { MAGIC_STRING("w",      KC_F24); } break;
         case  KC_Y: { MAGIC_STRING("ou",         KC_F24); } break;
 
-        case  KC_DOT: { MAGIC_STRING(".",         KC_F24); } break;
+        case  KC_DOT: { MAGIC_STRING("/",         KC_F24); } break;
 
         case  KC_SPC: { MAGIC_STRING("the ",     KC_NO); } break;
         // case  KC_F21: { MAGIC_STRING("",     KC_SPC); } break;
